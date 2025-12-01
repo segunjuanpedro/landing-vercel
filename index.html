@@ -6,14 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="images/favicon" href="/images/favicon.ico">
   <style>
-    :root {
-      --bg: #050816;
-      --card: #0f172a;
-      --accent: #22c55e;
-      --accent-hover: #16a34a;
-      --text-main: #f9fafb;
-      --text-muted: #9ca3af;
-    }
 
     * {
       box-sizing: border-box;
@@ -23,7 +15,6 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #111827 0%, #020617 60%, #000 100%);
       color: var(--text-main);
       min-height: 100vh;
       display: flex;
@@ -33,41 +24,16 @@
     }
 
     .card {
-      background: linear-gradient(145deg, #020617, #020617);
       border-radius: 24px;
       padding: 32px 28px;
       max-width: 420px;
       width: 100%;
-      border: 1px solid rgba(148, 163, 184, 0.18);
-      box-shadow:
-        0 20px 45px rgba(15, 23, 42, 0.9),
-        0 0 0 1px rgba(15, 23, 42, 0.9);
+      border: solid 2px #333;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 20px;
       text-align: center;
-    }
-
-    .badge {
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      padding: 6px 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
     }
 
     h1 {
@@ -77,7 +43,7 @@
     }
 
     h1 span {
-      background: linear-gradient(120deg, #22c55e, #a3e635);
+      background: #333;
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -94,10 +60,7 @@
       margin-top: 4px;
       width: 220px;
       height: 220px;
-      border-radius: 24px;
       padding: 10px;
-      background: radial-gradient(circle at top left, #22c55e33 0%, #020617 50%);
-      border: 1px solid rgba(148, 163, 184, 0.35);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -111,14 +74,12 @@
       overflow: hidden;
       position: relative;
       backdrop-filter: blur(8px);
-      background: rgba(15, 23, 42, 0.8);
     }
 
     .image-inner::after {
       content: "";
       position: absolute;
       inset: 0;
-      box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.75);
       pointer-events: none;
     }
 
@@ -147,22 +108,13 @@
       justify-content: center;
       align-items: center;
       gap: 8px;
-      width: 100%;
+      width: center;
       border-radius: 999px;
       padding: 10px 18px;
       font-size: 14px;
       font-weight: 600;
       border: none;
       cursor: pointer;
-      background: radial-gradient(circle at top left, #4ade80, #22c55e);
-      color: #052e16;
-      box-shadow:
-        0 0px 30px rgba(34, 197, 94, 0.45),
-        0 0 0 1px rgba(22, 163, 74, 0.7);
-      transition:
-        transform 120ms ease-out,
-        box-shadow 120ms ease-out,
-        filter 120ms ease-out;
     }
 
     .btn-primary span.icon {
@@ -173,16 +125,6 @@
     .btn-primary:hover {
       transform: translateY(-1px);
       filter: brightness(1.05);
-      box-shadow:
-        0 18px 40px rgba(34, 197, 94, 0.6),
-        0 0 0 1px rgba(22, 163, 74, 0.8);
-    }
-
-    .btn-primary:active {
-      transform: translateY(0);
-      box-shadow:
-        0 8px 20px rgba(34, 197, 94, 0.4),
-        0 0 0 1px rgba(22, 163, 74, 0.9);
     }
 
     .tiny {
@@ -205,18 +147,10 @@
 </head>
 <body>
   <main class="card">
-    <div class="badge">
-      <span class="badge-dot"></span>
-      Proyecto en línea
-    </div>
-
-    <h1>
-      Testeando<br />
-      soy <span>Juan Pedro</span>
-    </h1>
+    <h1>Juan Pedro</h1>
 
     <p class="subtitle">
-      Testeando vercel + dominio
+      Probando cositas
     </p>
 
     <div class="image-wrapper">
