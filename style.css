@@ -4,6 +4,14 @@
       padding: 0;
     }
 
+    a {
+      text-decoration: none;
+      color: #333;
+      border: solid 1px;
+      border-radius: 50px;
+      padding: 5px 8px 7px;
+    }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text-main);
