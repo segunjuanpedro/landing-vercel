@@ -6,11 +6,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="images/favicon" href="/images/favicon.ico">
   <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    /* “Boil” global: afecta texto + bordes + todo lo que esté adentro */
+    .boil{
+      filter: url(#boilAll);
+      transform: translateZ(0);
+    }
+
+  </style>
 </head>
-
-
 <body>
-  <main class="card">
+
+  <!-- Filtro (SVG “invisible”) -->
+  <svg width="0" height="0" style="position:absolute; left:-9999px; top:-9999px;">
+    <filter id="boilAll">
+      <feTurbulence type="fractalNoise" baseFrequency="0.1" numOctaves="8" seed="3" result="noise">
+        <!-- Posterize real del “boil” (~12 fps) cambiando el seed 12 veces por segundo -->
+        <animate attributeName="seed"
+                 dur="2s"
+                 repeatCount="indefinite"
+                 values="1;2;3;4;5;6;7;8;9;10;11;12" />
+      </feTurbulence>
+
+      <feDisplacementMap in="SourceGraphic" in2="noise"
+                         scale="3"
+                         xChannelSelector="R"
+                         yChannelSelector="G" />
+    </filter>
+  </svg>
+
+  <!--
+    Usá:
+    - class="card boil"                      -> boil normal (ya “saltado” a ~12fps por el seed)
+    - class="card boil posterize-12fps"      -> además aplica steps(12) a animaciones CSS (si agregás alguna)
+  -->
+
+    <main class="card boil posterize-12fps">
     <h1>Juan Pedro</h1>
         <div class="image-wrapper">
       <div class="image-inner">
@@ -21,5 +54,8 @@
 <a href="http://www.instagram.com/segunjuanpedro">@segunjuanpedro ➜</a>
 
   </main>
+
 </body>
+</html>
+
 </html>
