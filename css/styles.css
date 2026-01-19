@@ -1,0 +1,63 @@
+body {
+  color: white;
+  background-color: #1a1b1e;
+  font-family: "JetBrains Mono", monospace;
+}
+
+a {
+  color: #4ca6ff;
+}
+
+/* BEFORE / AFTER */
+
+.before-after {
+  position: relative;
+  max-width: 500px;
+  margin: 2rem 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.before-after img {
+  width: 100%;
+  display: block;
+}
+
+.before-after .after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  clip-path: inset(0 50% 0 0);
+}
+
+hr {
+    margin-top: 30px;
+  border: none;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    #585858,
+    #585858 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+figcaption {
+  font-size: small;
+  color: #585858;
+}
+
+strong {
+  color: #ffc66d;
+}
+
+h2 {
+    
+  color: #00a8a8;
+}
+
+.idioma{
+    text-align: right;
+}
+
