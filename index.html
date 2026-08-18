@@ -53,9 +53,9 @@
   <nav class="nav">
     <div class="logo">JuanPedro<span>.</span></div>
     <ul class="nav-links">
-      <li><a href="#animaciones">Animaciones</a></li>
       <li><a href="#modelado">Modelado 3D</a></li>
       <li><a href="#tienda">Tienda</a></li>
+      <li><a href="#animaciones">Animaciones</a></li>
       <li><a href="#planes">Planes</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
@@ -74,6 +74,8 @@
       <p class="section-lead">Cada proyecto parte de lo que necesitás comunicar y de la forma en que las personas van a interactuar con él. Diseño y desarrollo el sitio desde cero, incorporando animación, contenido 3D o herramientas de venta cuando realmente ayudan a mostrar mejor un producto o una idea.</p>
       <div class="hero-cta">
         <a href="#contacto" class="btn btn-primary">Empezar un proyecto</a>
+        <!-- TODO: reemplazar por la demo definitiva cuando esté lista -->
+        <a href="https://tinta-y-trama.vercel.app/" target="_blank" rel="noopener" class="btn btn-outline">Ver demo</a>
       </div>
     </div>
     <!-- video placeholder removed; hero text will be centered -->
@@ -101,34 +103,13 @@
   </div>
 
   <div class="container">
-    <div class="demo-cta" style="margin-top: 48px;">
-      <div>
-        <h2>Ejemplo: una herramienta para personalizar productos</h2>
-        <p>Un editor que permite cambiar variantes en tiempo real, pensado para mostrar cómo puede funcionar un producto configurable dentro de un sitio.</p>
+    <div class="demo-cta">
+      <div class="demo-cta-text">
+        <span class="demo-cta-title">Ejemplo: personalizador de productos en tiempo real</span>
+        <span class="demo-cta-desc">Un editor que permite cambiar variantes al instante, dentro del propio sitio.</span>
       </div>
       <!-- TODO: reemplazar por https://juanpedro.com.ar/demo cuando esté migrado -->
-      <a href="https://editor-textil.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary">Ver ejemplo</a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============ ANIMACIONES LOTTIE ============ -->
-<section id="animaciones">
-  <div class="container split">
-    <div class="col-media">
-      <div class="media-frame">
-        <div id="lottie-sample"></div>
-      </div>
-    </div>
-    <div class="col-text">
-      <span class="eyebrow">Animación</span>
-      <h2 class="section-title">Animación para hacer más clara la experiencia</h2>
-      <p class="section-lead">La animación no tiene que estar solamente para decorar. Puede explicar una acción, acompañar una transición o darle al usuario una respuesta inmediata. Desarrollo estos recursos para que formen parte de la interfaz sin convertirlos en un obstáculo para la navegación.</p>
-      <ul class="feature-list">
-        <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Animaciones livianas y adaptables a distintas pantallas</li>
-        <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Pueden responder al scroll, hover, clic o interacción del usuario</li>
-      </ul>
+      <a href="https://editor-textil.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Ver ejemplo</a>
     </div>
   </div>
 </section>
@@ -141,7 +122,7 @@
       <div>
         <span class="eyebrow">E-commerce</span>
         <h2 class="section-title">Una tienda que puede adaptarse al producto</h2>
-        <p class="section-lead"style="color: #fff;">Una tienda online no tiene por qué limitarse a una grilla de fotos. Cuando un producto necesita variantes, configuradores, animaciones o una presentación más específica, el catálogo puede diseñarse alrededor de esa experiencia y formar parte del mismo sitio.</p>
+        <p class="section-lead">Una tienda online no tiene por qué limitarse a una grilla de fotos. Cuando un producto necesita variantes, configuradores, animaciones o una presentación más específica, el catálogo puede diseñarse alrededor de esa experiencia y formar parte del mismo sitio.</p>
       </div>
       <div class="cart-indicator" id="cartBtn" aria-label="Carrito">
         <div class="cart-animation" id="cartAnimation">
@@ -197,6 +178,28 @@
     </div>
   </div>
 </section>
+
+
+<!-- ============ ANIMACIONES LOTTIE ============ -->
+<section id="animaciones">
+  <div class="container split">
+    <div class="col-media">
+      <div class="media-frame">
+        <div id="lottie-sample"></div>
+      </div>
+    </div>
+    <div class="col-text">
+      <span class="eyebrow">Animación</span>
+      <h2 class="section-title">Animación para hacer más clara la experiencia</h2>
+      <p class="section-lead">La animación no tiene que estar solamente para decorar. Puede explicar una acción, acompañar una transición o darle al usuario una respuesta inmediata. Desarrollo estos recursos para que formen parte de la interfaz sin convertirlos en un obstáculo para la navegación.</p>
+      <ul class="feature-list">
+        <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Animaciones livianas y adaptables a distintas pantallas</li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Pueden responder al scroll, hover, clic o interacción del usuario</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 
 <!-- ============ PLANES ============ -->
 <section id="planes">
@@ -327,9 +330,9 @@
   <div class="container footer-grid">
     <div class="logo">JuanPedro<span>.</span></div>
     <ul class="footer-links">
-      <li><a href="#animaciones">Animaciones</a></li>
       <li><a href="#modelado">Modelado 3D</a></li>
       <li><a href="#tienda">Tienda</a></li>
+      <li><a href="#animaciones">Animaciones</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <span class="footer-note">© 2026 JuanPedro</span>
