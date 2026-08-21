@@ -124,6 +124,46 @@ cartBtn.addEventListener('mouseup', () => cartAnimation.classList.remove('active
 
 updateCart();
 
+// ---------- Promo: descuento 50% con cuenta regresiva (2 meses) ----------
+(function initPromoCountdown(){
+  const PROMO_END = new Date('2026-10-21T00:00:00-03:00').getTime();
+  const banner = document.getElementById('promoBanner');
+  if(!banner) return;
+
+  const els = {
+    days: document.getElementById('cd-days'),
+    hours: document.getElementById('cd-hours'),
+    mins: document.getElementById('cd-mins'),
+    secs: document.getElementById('cd-secs'),
+  };
+
+  function endPromo(){
+    banner.style.display = 'none';
+    document.querySelectorAll('.price-old').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.price-new').forEach(el => { el.innerHTML = el.dataset.full; });
+  }
+
+  function tick(){
+    const diff = PROMO_END - Date.now();
+    if(diff <= 0){
+      clearInterval(timer);
+      endPromo();
+      return;
+    }
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    els.days.textContent = String(days).padStart(2, '0');
+    els.hours.textContent = String(hours).padStart(2, '0');
+    els.mins.textContent = String(mins).padStart(2, '0');
+    els.secs.textContent = String(secs).padStart(2, '0');
+  }
+
+  tick();
+  const timer = setInterval(tick, 1000);
+})();
+
 // ---------- Nav mobile: scroll suave a secciones ----------
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click', function(e){

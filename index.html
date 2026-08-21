@@ -5,16 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Desarrollo web a medida, 3D y tiendas online | JuanPedro</title>
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-<meta name="description" content="Desarrollo de sitios web a medida para marcas, productos y proyectos. Diseño y código propio, con animación, 3D interactivo y tiendas online cuando el proyecto lo necesita. Buenos Aires, Argentina.">
+<meta name="description" content="Desarrollo de sitios web a medida con animación, 3D interactivo y tiendas online. Diseño y código propio para marcas y productos. Buenos Aires, Argentina.">
 <meta name="keywords" content="desarrollo web a medida, diseño web personalizado, sitios web Buenos Aires, desarrollo e-commerce, 3D interactivo, animación web">
 <link rel="canonical" href="https://juanpedro.com.ar/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="JuanPedro">
 <meta property="og:title" content="Desarrollo web a medida, 3D y tiendas online | JuanPedro">
 <meta property="og:description" content="Sitios web personalizados para marcas y productos, con animación, 3D interactivo y e-commerce cuando el proyecto lo necesita.">
 <meta property="og:url" content="https://juanpedro.com.ar/">
 <meta property="og:image" content="https://juanpedro.com.ar/assets/images/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="es_AR">
 
 <!-- Twitter -->
@@ -27,11 +30,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/RGBELoader.js"></script>
+<script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/RGBELoader.js" defer></script>
 
 <script type="application/ld+json">
 {
@@ -40,8 +43,13 @@
   "name": "JuanPedro",
   "url": "https://juanpedro.com.ar",
   "description": "Desarrollo de sitios web personalizados para marcas, productos y proyectos, incorporando animación, 3D interactivo y comercio electrónico cuando aporta valor.",
+  "image": "https://juanpedro.com.ar/assets/images/og-cover.png",
   "areaServed": "Argentina",
   "email": "contacto@juanpedro.com.ar",
+  "telephone": "+54 221 643-9689",
+  "sameAs": [
+    "https://www.instagram.com/segunjuanpedro/"
+  ],
   "priceRange": "$450.000 - $890.000 ARS"
 }
 </script>
@@ -60,7 +68,7 @@
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <div class="nav-right">
-      <!--<button class="btn btn-primary" onclick="document.getElementById('hero-video').scrollIntoView({behavior:'smooth'})">Ver demo</button> -->
+      <a href="https://tinta-y-trama.vercel.app/" target="_blank" rel="noopener" class="btn btn-outline">Ver demo</a>
     </div>
   </nav>
 </header>
@@ -71,7 +79,7 @@
     <div>
       <span class="eyebrow">Desarrollo web</span>
       <h1>Sitios web hechos a medida para mostrar mejor lo que hacés</h1>
-      <p class="section-lead">Cada proyecto parte de lo que necesitás comunicar y de la forma en que las personas van a interactuar con él. Diseño y desarrollo el sitio desde cero, incorporando animación, contenido 3D o herramientas de venta cuando realmente ayudan a mostrar mejor un producto o una idea.</p>
+      <p class="section-lead">Cada proyecto parte de lo que necesitás comunicar y de la forma en que las personas van a interactuar con él. Diseño y desarrollo el sitio con código propio, incorporando animación, contenido 3D o herramientas de venta cuando realmente ayudan a mostrar mejor un producto o una idea.</p>
       <div class="hero-cta">
         <a href="#contacto" class="btn btn-primary">Empezar un proyecto</a>
         <!-- TODO: reemplazar por la demo definitiva cuando esté lista -->
@@ -88,7 +96,7 @@
     <div class="col-text">
       <span class="eyebrow">Modelado 3D</span>
       <h2 class="section-title">Cuando una imagen no alcanza, el producto puede verse en 3D</h2>
-      <p class="section-lead">Hay productos que necesitan algo más que una fotografía para entenderse. Un visor 3D permite recorrer una pieza, apreciar sus materiales y mostrar cómo se relacionan sus partes. Es especialmente útil para productos técnicos, artesanales o personalizables que necesitan explicar su forma y sus detalles.</p>
+      <p class="section-lead">Un visor 3D permite recorrer una pieza, apreciar sus materiales y mostrar cómo se relacionan sus partes. Es especialmente útil para productos técnicos, artesanales o personalizables que necesitan explicar su forma y sus detalles.</p>
       <ul class="feature-list">
         <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Modelos 3D optimizados para la web</li>
         <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Interacción con mouse o pantalla táctil</li>
@@ -122,7 +130,7 @@
       <div>
         <span class="eyebrow">E-commerce</span>
         <h2 class="section-title">Una tienda que puede adaptarse al producto</h2>
-        <p class="section-lead">Una tienda online no tiene por qué limitarse a una grilla de fotos. Cuando un producto necesita variantes, configuradores, animaciones o una presentación más específica, el catálogo puede diseñarse alrededor de esa experiencia y formar parte del mismo sitio.</p>
+        <p class="section-lead">Cuando un producto necesita variantes, configuradores, animaciones o una presentación más específica, el catálogo puede diseñarse alrededor de esa experiencia y formar parte del mismo sitio.</p>
       </div>
       <div class="cart-indicator" id="cartBtn" aria-label="Carrito">
         <div class="cart-animation" id="cartAnimation">
@@ -191,7 +199,7 @@
     <div class="col-text">
       <span class="eyebrow">Animación</span>
       <h2 class="section-title">Animación para hacer más clara la experiencia</h2>
-      <p class="section-lead">La animación no tiene que estar solamente para decorar. Puede explicar una acción, acompañar una transición o darle al usuario una respuesta inmediata. Desarrollo estos recursos para que formen parte de la interfaz sin convertirlos en un obstáculo para la navegación.</p>
+      <p class="section-lead">La animación puede explicar una acción, acompañar una transición o darle al usuario una respuesta inmediata. Desarrollo estos recursos para que formen parte de la interfaz sin convertirlos en un obstáculo para la navegación.</p>
       <ul class="feature-list">
         <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Animaciones livianas y adaptables a distintas pantallas</li>
         <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Pueden responder al scroll, hover, clic o interacción del usuario</li>
@@ -208,12 +216,26 @@
     <h2 class="section-title">Una base clara para empezar tu proyecto</h2>
     <p class="section-lead">Tres puntos de partida para distintos tipos de proyecto. El alcance se puede adaptar según lo que necesite cada sitio.</p>
 
+    <div class="promo-banner" id="promoBanner">
+      <span class="promo-badge">-50%</span>
+      <span class="promo-text">Descuento por tiempo limitado en todos los planes</span>
+      <div class="promo-countdown" aria-live="polite">
+        <div class="countdown-unit"><span class="countdown-value" id="cd-days">00</span><span class="countdown-label">días</span></div>
+        <div class="countdown-unit"><span class="countdown-value" id="cd-hours">00</span><span class="countdown-label">hs</span></div>
+        <div class="countdown-unit"><span class="countdown-value" id="cd-mins">00</span><span class="countdown-label">min</span></div>
+        <div class="countdown-unit"><span class="countdown-value" id="cd-secs">00</span><span class="countdown-label">seg</span></div>
+      </div>
+    </div>
+
     <div class="plans-grid">
 
       <div class="plan-card">
         <div class="plan-tag">Esencial</div>
         <h3>Landing personalizada</h3>
-        <div class="plan-price">$450.000<sup>ARS</sup></div>
+        <div class="plan-price">
+          <span class="price-old">$450.000</span>
+          <span class="price-new" data-full="$450.000<sup>ARS</sup>">$225.000<sup>ARS</sup></span>
+        </div>
         <div class="plan-period">desde · pago único</div>
         <ul class="plan-list">
           <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Diseño y desarrollo personalizado</p></li>
@@ -228,7 +250,10 @@
       <div class="plan-card featured">
         <div class="plan-tag">Interactivo</div>
         <h3>Web con animación y 3D</h3>
-        <div class="plan-price">$890.000<sup>ARS</sup></div>
+        <div class="plan-price">
+          <span class="price-old">$890.000</span>
+          <span class="price-new" data-full="$890.000<sup>ARS</sup>">$445.000<sup>ARS</sup></span>
+        </div>
         <div class="plan-period">desde · pago único</div>
         <ul class="plan-list">
           <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Todo lo incluido en el proyecto Esencial</p></li>
@@ -243,7 +268,10 @@
       <div class="plan-card">
         <div class="plan-tag">E-commerce</div>
         <h3>Tienda personalizada</h3>
-        <div class="plan-price">Desde $1.400.000<sup>ARS</sup></div>
+        <div class="plan-price">
+          <span class="price-old">Desde $1.400.000</span>
+          <span class="price-new" data-full="Desde $1.400.000<sup>ARS</sup>">Desde $700.000<sup>ARS</sup></span>
+        </div>
         <div class="plan-period">según alcance</div>
         <ul class="plan-list">
           <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Catálogo de productos</p></li>
@@ -339,7 +367,7 @@
   </div>
 </footer>
 
-<script src="viewer3d.js"></script>
-<script src="script.js"></script>
+<script src="viewer3d.js" defer></script>
+<script src="script.js" defer></script>
 </body>
 </html>
