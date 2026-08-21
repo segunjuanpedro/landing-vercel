@@ -1,0 +1,236 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #111;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.brand-link {
+  position: fixed;
+  top: 22px;
+  left: 24px;
+  z-index: 20;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6);
+  transition: color .15s ease, opacity .15s ease;
+}
+
+.brand-link:hover,
+.brand-link:focus-visible {
+  color: #fff;
+  opacity: 1;
+}
+
+#viewer {
+  position: fixed;
+  inset: 0;
+}
+
+#loading {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  background: #111;
+  z-index: 30;
+  transition: opacity .3s ease;
+}
+#loading.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#panel {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 20;
+}
+
+.panel-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(20, 20, 20, 0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 100px;
+  padding: 6px;
+}
+
+#textureInput {
+  display: none;
+}
+
+.sep {
+  width: 1px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 0 2px;
+}
+
+.icon-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.icon-btn svg { width: 16px; height: 16px; }
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.icon-btn.toggle.active {
+  background: #fff;
+  color: #111;
+}
+.icon-btn.toggle.active:hover {
+  background: #fff;
+  color: #111;
+}
+
+/* Tooltips propios: aparecen al instante (sin el delay del title nativo del navegador) */
+[data-tooltip] {
+  position: relative;
+}
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(3px);
+  background: rgba(15, 15, 15, 0.92);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .08s linear, transform .08s linear;
+  z-index: 50;
+}
+[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 640px) {
+  #panel { bottom: 16px; }
+  .brand-link { top: 16px; left: 18px; }
+}
+
+/* ---------- Modal de info ---------- */
+.info-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease;
+}
+.info-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.info-modal {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  background: rgba(24, 24, 24, 0.7);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  padding: 26px 22px 22px;
+  color: #fff;
+  transform: translateY(6px);
+  transition: transform .18s ease;
+}
+.info-overlay.visible .info-modal {
+  transform: translateY(0);
+}
+
+.info-modal h2 {
+  margin: 0 0 14px;
+  font-size: 15px;
+  font-weight: 600;
+  padding-right: 24px;
+}
+
+.info-modal ul {
+  margin: 0 0 14px;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.info-modal li {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.info-contact {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 14px;
+}
+.info-contact a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.info-modal #btnInfoClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+}
+.info-modal #btnInfoClose svg { width: 14px; height: 14px; }
