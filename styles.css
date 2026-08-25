@@ -425,6 +425,18 @@ textarea{ resize:vertical; min-height:136px; }
 .form-msg{ margin-top:18px; font-size:13px; color:var(--ok); display:none; }
 
 /* =========================================================
+   LEGAL (política de privacidad, etc.)
+   ========================================================= */
+.legal{ padding:64px 0 96px; }
+.legal-content{ max-width:760px; }
+.legal-updated{ font-family:var(--font-mono); font-size:12px; color:var(--ink-soft); margin-bottom:32px; }
+.legal-content h2{ font-family:var(--font-display); font-size:20px; font-weight:600; margin:40px 0 12px; color:var(--ink); }
+.legal-content p{ color:var(--ink); font-size:15px; margin-bottom:14px; }
+.legal-content ul{ margin:0 0 14px; padding-left:20px; color:var(--ink); font-size:15px; line-height:1.65; }
+.legal-content li{ margin-bottom:8px; }
+.legal-content a{ color:var(--primary-dark); text-decoration:underline; }
+
+/* =========================================================
    FOOTER
    ========================================================= */
 footer{ border-top:1px solid var(--line); background:var(--surface); padding:40px 0; }
