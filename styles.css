@@ -223,36 +223,27 @@ header{
   max-width:500px;
   margin:0 auto;
 }
-.editor-preview-tab{
-  position:absolute;
-  top:0; bottom:0; left:0;
-  width:calc(100% + 20px);
-  background:#ffffff;
-  border: 4px solid #333;
-  border-radius:var(--radius);
-  transition:width .4s cubic-bezier(.22,.9,.32,1);
-  z-index:0;
-  pointer-events:none;
-}
-.editor-preview-tab svg{
-  position:absolute;
-  top:50%; right:26px;
-  transform:translateY(-50%);
-}
-.editor-preview-wrap:hover .editor-preview-tab{ width:calc(100% + 76px); }
 .editor-preview-link{
-  position:relative;
-  z-index:1;
   display:block;
   width:100%; aspect-ratio:1/1;
   border-radius:var(--radius);
   overflow:hidden;
   background:var(--surface);
-  box-shadow:var(--shadow-soft);
-  transition:box-shadow .2s ease;
 }
-.editor-preview-wrap:hover .editor-preview-link{ box-shadow:var(--shadow-hover); }
 .editor-preview-img{ width:100%; height:100%; object-fit:cover; display:block; }
+.editor-cta{
+  display:inline-flex; align-items:center; gap:6px;
+  margin-top:24px;
+  background:#fff;
+  border:3px solid #333;
+  border-radius:var(--radius-pill);
+  padding:8px 14px;
+  font-size:13px; font-weight:600; color:#333;
+  text-decoration:none;
+  box-shadow:3px 3px 0 0 #333;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.editor-cta:hover{ transform:translate(3px,3px); box-shadow:0 0 0 0 #333; }
 .viewer3d-hint{
   display:block; margin-top:14px;
   font-family:var(--font-mono); font-size:11px; color:var(--ink-soft);
