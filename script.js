@@ -164,6 +164,27 @@ updateCart();
   const timer = setInterval(tick, 1000);
 })();
 
+// ---------- Título de pestaña: animación ASCII cuando la pestaña está oculta ----------
+(function initTabAttention(){
+  const originalTitle = document.title;
+  const frames = ['┏(•ᴗ•)┛', '┗(•ᴗ•)┓'];
+  let frameIndex = 0;
+  let timer = null;
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      frameIndex = 0;
+      timer = setInterval(() => {
+        document.title = frames[frameIndex % frames.length];
+        frameIndex++;
+      }, 100);
+    } else {
+      clearInterval(timer);
+      document.title = originalTitle;
+    }
+  });
+})();
+
 // ---------- Nav mobile: scroll suave a secciones ----------
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click', function(e){
