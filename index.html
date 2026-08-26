@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Desarrollo web a medida, 3D y tiendas online | JuanPedro</title>
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/webp" href="assets/images/logo.webp">
 <meta name="description" content="Desarrollo de sitios web a medida con animación, 3D interactivo y tiendas online. Diseño y código propio para marcas y productos. Buenos Aires, Argentina.">
 <meta name="keywords" content="desarrollo web a medida, diseño web personalizado, sitios web Buenos Aires, desarrollo e-commerce, 3D interactivo, animación web">
 <link rel="canonical" href="https://juanpedro.com.ar/">
@@ -65,7 +65,7 @@
 <!-- ============ HEADER ============ -->
 <header>
   <nav class="nav">
-    <div class="logo">JuanPedro<span>.</span></div>
+    <div class="logo"><img src="assets/images/logo.webp" alt="" class="logo-img">JuanPedro<span>.</span></div>
     <ul class="nav-links">
       <li><a href="#modelado">Modelado 3D</a></li>
       <li><a href="#tienda">Tienda</a></li>
@@ -74,23 +74,26 @@
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <div class="nav-right">
-      <a href="https://tinta-y-trama.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary">Ver demo</a>
+      <a href="https://tinta-y-trama.vercel.app/" target="_blank" rel="noopener" class="btn btn-hard">Ver demo</a>
     </div>
   </nav>
 </header>
 
 <!-- ============ HERO ============ -->
-<section class="hero hero--centered">
+<section class="hero">
   <div class="container hero-grid">
     <div>
       <span class="eyebrow">Desarrollo web</span>
-      <h1>Sitios web hechos a medida para mostrar mejor lo que hacés</h1>
+      <h1>Sitios web <br> para mostrar lo que hacés.</h1>
       <p class="section-lead">Cada proyecto parte de lo que necesitás comunicar y de la forma en que las personas van a interactuar con él. Diseño y desarrollo el sitio con código propio, incorporando animación, contenido 3D o herramientas de venta cuando realmente ayudan a mostrar mejor un producto o una idea.</p>
       <div class="hero-cta">
-        <a href="#contacto" class="btn btn-primary">Empezar un proyecto</a>
+        <a href="#contacto" class="btn btn-hard">Empezar un proyecto</a>
       </div>
     </div>
-    <!-- video placeholder removed; hero text will be centered -->
+    <div class="col-media">
+      <div id="glb-viewer" class="viewer3d-container"></div>
+      <span class="viewer3d-hint">Click y arrastrá para rotar</span>
+    </div>
   </div>
 </section>
 
@@ -99,7 +102,7 @@
   <div class="container split reverse visor">
     <div class="col-text">
       <span class="eyebrow">Modelado 3D</span>
-      <h2 class="section-title">Cuando una imagen no alcanza, el producto puede verse en 3D</h2>
+      <h2 class="section-title">Tus productos pueden verse en 3D</h2>
       <p class="section-lead">Un visor 3D permite recorrer una pieza, apreciar sus materiales y mostrar cómo se relacionan sus partes. Es especialmente útil para productos técnicos, artesanales o personalizables que necesitan explicar su forma y sus detalles.</p>
       <ul class="feature-list">
         <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Modelos 3D optimizados para la web</li>
@@ -107,20 +110,12 @@
       </ul>
     </div>
     <div class="col-media">
-      <div class="media-frame-3d" style="padding:0; min-height:340px;">
-        <div id="glb-viewer" class="viewer3d-container"></div>
+      <div class="editor-preview-wrap">
+        <a href="/editor/" class="editor-preview-link" aria-label="Ver ejemplo interactivo: personalizador de productos en tiempo real">
+          <img src="assets/images/editor-snapshot.webp" alt="Personalizador de productos en tiempo real" class="editor-preview-img" />
+        </a>
       </div>
-      <span class="viewer3d-hint">Click y arrastrá para rotar · scroll para hacer zoom</span>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="demo-cta">
-      <div class="demo-cta-text">
-        <span class="demo-cta-title">Ejemplo: personalizador de productos en tiempo real</span>
-        <span class="demo-cta-desc">Un editor que permite cambiar variantes al instante, dentro del propio sitio.</span>
-      </div>
-      <a href="/editor/" class="btn btn-primary btn-sm">Ver ejemplo</a>
+      <span class="viewer3d-hint">Ejemplo: personalizador de productos en tiempo real · click para probarlo</span>
     </div>
   </div>
 </section>
@@ -265,7 +260,7 @@
           <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>1 modelo 3D interactivo</p></li>
           <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Interacciones adaptadas al proyecto</p></li>
         </ul>
-        <a href="#contacto" class="btn btn-primary btn-block">Consultar proyecto</a>
+        <a href="#contacto" class="btn btn-hard btn-block">Consultar proyecto</a>
       </div>
 
       <div class="plan-card">
@@ -319,7 +314,7 @@
       <!-- Honeypot: campo oculto, invisible para humanos, los bots lo completan igual -->
       <input type="text" name="honeypot" style="display:none" tabindex="-1" autocomplete="off">
 
-      <button type="submit" class="btn btn-primary btn-block">Enviar mensaje</button>
+      <button type="submit" class="btn btn-hard btn-block">Enviar mensaje</button>
       <p class="form-msg" id="formMsg"></p>
     </form>
   </div>
@@ -332,6 +327,8 @@
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     status.textContent = 'Enviando...';
+    status.classList.remove('form-msg--error');
+    status.style.display = 'block';
 
     const data = Object.fromEntries(new FormData(form));
 
@@ -349,9 +346,11 @@
         form.reset();
       } else {
         status.textContent = result.error || 'Ocurrió un error, intentá de nuevo.';
+        status.classList.add('form-msg--error');
       }
     } catch (err) {
       status.textContent = 'Ocurrió un error, intentá de nuevo.';
+      status.classList.add('form-msg--error');
     }
   });
 </script>
@@ -359,7 +358,7 @@
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="container footer-grid">
-    <div class="logo">JuanPedro<span>.</span></div>
+    <div class="logo"><img src="assets/images/logo.webp" alt="" class="logo-img">JuanPedro<span>.</span></div>
     <ul class="footer-links">
       <li><a href="#modelado">Modelado 3D</a></li>
       <li><a href="#tienda">Tienda</a></li>

@@ -29,20 +29,20 @@ const VIEWER_CONFIG = {
   // Podés usar un .hdr o directamente una imagen equirectangular (.jpg/.png).
   hdriUrl: 'assets/hdri2.hdr',
   // ej: hdriUrl: 'assets/estudio.hdr',
-  useEnvAsBackground: true, // true = se ve el HDRI como fondo, no solo como reflejo
+  useEnvAsBackground: false, // true = se ve el HDRI como fondo, no solo como reflejo
 
   // Fondo — "solid" usa backgroundColor. "transparent" deja ver lo que
-  // haya detrás del visor en la página (el color de --surface-alt de la sección).
-  backgroundMode: 'solid', // 'solid' | 'transparent'
+  // haya detrás del visor en la página (el color de --surface de la sección).
+  backgroundMode: 'transparent', // 'solid' | 'transparent'
   backgroundColor: '#936f62', // coincide con --surface-alt del sitio
 
   // Cámara / interacción
   autoRotate: true,
   autoRotateSpeed: 1.1,
-  enableZoom: true,
-  enablePan: true,
-  minDistance: 1,
-  maxDistance: 6,
+  enableZoom: false,
+  enablePan: false,
+  minDistance: 3,
+  maxDistance: 12,
   exposure: 0.4,
 
   // Luces
@@ -230,7 +230,19 @@ const VIEWER_CONFIG = {
     const size2 = box2.getSize(new THREE.Vector3());
     obj.position.y += size2.y / 2;
     controls.target.set(0, size2.y * 0.4, 0);
-    camera.position.set(1.8, size2.y * 0.8 + 0.8, 2.6);
+
+    // Distancia de cámara calculada para que el objeto entre completo tanto
+    // en el FOV vertical como en el horizontal (evita que se recorten los
+    // lados cuando el modelo es más ancho que alto o el canvas es angosto).
+    const margin = 1.3;
+    const vFov = THREE.MathUtils.degToRad(camera.fov);
+    const hFov = 2 * Math.atan(Math.tan(vFov / 2) * camera.aspect);
+    const distV = (size2.y / 2) / Math.tan(vFov / 2);
+    const distH = (Math.max(size2.x, size2.z) / 2) / Math.tan(hFov / 2);
+    const distance = Math.max(distV, distH, 1) * margin;
+
+    const dir = new THREE.Vector3(1.8, 0.8, 2.6).normalize();
+    camera.position.set(dir.x * distance, size2.y * 0.4 + dir.y * distance, dir.z * distance);
     controls.update();
   }
 
