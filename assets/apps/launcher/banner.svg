@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 800 450">
+  <!-- Generator: Adobe Illustrator 30.1.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 136)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #757575;
+      }
+
+      .st1 {
+        fill: none;
+        opacity: .98;
+        stroke: #bcbcbc;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .st2 {
+        fill: #bcbcbc;
+        font-family: jgs5, jgs5;
+        font-size: 44px;
+      }
+    </style>
+  </defs>
+  <rect class="st0" width="800" height="450"/>
+  <text class="st2" transform="translate(281.05 149.55)"><tspan x="0" y="0">Launcher</tspan></text>
+  <text class="st2" transform="translate(281.05 239.32)"><tspan x="0" y="0">Juan</tspan></text>
+  <text class="st2" transform="translate(281.05 300.05)"><tspan x="0" y="0">Pedro</tspan></text>
+  <line class="st1" x1="266.01" y1="177.94" x2="540.11" y2="177.94"/>
+</svg>

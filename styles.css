@@ -448,6 +448,81 @@ textarea{ resize:vertical; min-height:136px; }
 .form-msg--error{ color:var(--bad); }
 
 /* =========================================================
+   APPS
+   ========================================================= */
+.apps-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:20px; margin-top:40px; }
+.apps-empty{ grid-column:1/-1; font-size:14px; color:var(--ink-soft); padding:40px 0; text-align:center; }
+.app-card{
+  background:#fff; border-radius:var(--radius-s); overflow:hidden;
+  box-shadow:var(--shadow-softer); cursor:pointer;
+  display:flex; flex-direction:column;
+  max-width:400px;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.app-card:hover, .app-card:focus-visible{ transform:translateY(-4px); box-shadow:var(--shadow-hover); outline:none; }
+.app-card-banner{ aspect-ratio:1/1; background:var(--surface-alt); overflow:hidden; }
+.app-card-banner img{ width:100%; height:100%; object-fit:cover; }
+.app-card-body{ padding:12px; display:flex; gap:10px; align-items:flex-start; }
+.app-card-icon{ width:32px; height:32px; border-radius:8px; object-fit:cover; flex-shrink:0; background:var(--surface-alt); }
+.app-card-info{ min-width:0; }
+.app-card-info h3{ font-size:13px; margin-bottom:2px; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.app-card-info p{ font-size:11px; display:-webkit-box; -webkit-line-clamp:2; line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.app-card-meta{ display:flex; gap:8px; margin-top:6px; font-family:var(--font-mono); font-size:10px; color:var(--ink-soft); }
+
+#donaciones{
+  background: #2A7B9B;
+  background: linear-gradient(0deg,rgb(255, 255, 255) 0%,rgb(159, 225, 242) 100%);
+}
+.donation-card{
+  display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;
+  background:var(--surface); border-radius:var(--radius); padding:40px; box-shadow:var(--shadow-softer);
+}
+.donation-card .section-lead{ max-width:560px; margin-bottom:0; }
+.donation-card .btn{ flex-shrink:0; }
+
+/* ---- Modal ---- */
+.app-modal-overlay{
+  position:fixed; inset:0; z-index:200; display:none;
+  align-items:center; justify-content:center;
+  background:rgba(20,30,40,.55); padding:24px;
+}
+.app-modal-overlay.open{ display:flex; }
+body.modal-open{ overflow:hidden; }
+.app-modal{
+  position:relative; background:#fff; border-radius:var(--radius);
+  width:100%; max-width:640px; max-height:88vh; overflow-y:auto;
+  box-shadow:var(--shadow-hover);
+}
+.app-modal-close{
+  position:absolute; top:16px; right:16px; z-index:1;
+  width:34px; height:34px; border-radius:50%; border:none;
+  background:rgba(255,255,255,.9); color:var(--ink);
+  display:flex; align-items:center; justify-content:center;
+}
+.app-modal-banner{ width:100%; aspect-ratio:16/9; object-fit:cover; display:block; background:var(--surface-alt); }
+.app-modal-body{ padding:28px 32px 32px; }
+.app-modal-header{ display:flex; gap:16px; align-items:center; margin-bottom:18px; }
+.app-modal-icon{ width:64px; height:64px; border-radius:var(--radius-s); object-fit:cover; flex-shrink:0; background:var(--surface-alt); }
+.app-modal-title h2{ font-size:22px; margin-bottom:6px; }
+.app-modal-meta{ display:flex; gap:14px; font-family:var(--font-mono); font-size:12px; color:var(--ink-soft); }
+.app-modal-desc{ font-size:14px; color:var(--ink); margin:20px 0 24px; }
+.app-modal-instructions{ margin-top:28px; }
+.app-modal-instructions h3{ font-family:var(--font-display); font-size:15px; font-weight:600; margin-bottom:16px; color:var(--ink); }
+.instruction-step{ display:flex; gap:14px; margin-bottom:20px; }
+.instruction-step:last-child{ margin-bottom:0; }
+.instruction-step-num{
+  flex-shrink:0; width:24px; height:24px; border-radius:50%;
+  background:var(--primary-soft); color:var(--primary-dark);
+  font-family:var(--font-mono); font-size:12px; font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+}
+.instruction-step-content{ flex:1; }
+.instruction-step-content p{ font-size:14px; color:var(--ink); }
+.instruction-step-content img{
+  margin-top:10px; width:100%; border-radius:var(--radius-s); border:1px solid var(--line);
+}
+
+/* =========================================================
    LEGAL (política de privacidad, etc.)
    ========================================================= */
 .legal{ padding:64px 0 96px; }
@@ -476,6 +551,7 @@ footer{ border-top:1px solid var(--line); background:var(--surface); padding:40p
   .split.reverse .col-media, .split.reverse .col-text{ order:initial; }
   .product-grid, .plans-grid{ grid-template-columns:1fr; }
   .contact-wrap{ grid-template-columns:1fr; }
+  .donation-card{ flex-direction:column; align-items:flex-start; }
   .nav-links{ display:none; }
   .nav-toggle{ display:inline-flex; }
   section{ padding:80px 0; }
@@ -530,4 +606,8 @@ footer{ border-top:1px solid var(--line); background:var(--surface); padding:40p
   .product-info h3{ font-size:15px; }
   .product-info p{ margin:0; }
   .product-info .toggle-btn{ width:90px; padding:10px 16px; }
+  .apps-grid{ grid-template-columns:repeat(auto-fill, minmax(130px, 1fr)); gap:14px; }
+  .app-card{ max-width:none; }
+  .app-modal-body{ padding:24px 20px 28px; }
+  .donation-card{ padding:28px; }
 }

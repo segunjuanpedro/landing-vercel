@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apps para descargar | JuanPedro</title>
+<link rel="icon" type="image/webp" href="../assets/images/logo.webp">
+<meta name="description" content="Apps de JuanPedro disponibles para descargar en Android. Gratis, con instrucciones de instalación paso a paso.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://juanpedro.com.ar/apps/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="JuanPedro">
+<meta property="og:title" content="Apps para descargar | JuanPedro">
+<meta property="og:description" content="Apps gratuitas para Android hechas por JuanPedro, con instrucciones de instalación paso a paso.">
+<meta property="og:url" content="https://juanpedro.com.ar/apps/">
+<meta property="og:image" content="https://juanpedro.com.ar/assets/images/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_AR">
+
+<!-- Twitter -->
+<meta name="twitter:image" content="https://juanpedro.com.ar/assets/images/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Apps para descargar | JuanPedro">
+<meta name="twitter:description" content="Apps gratuitas para Android hechas por JuanPedro, con instrucciones de instalación paso a paso.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+
+<!-- Vercel Web Analytics -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <nav class="nav">
+    <a href="/" class="logo" style="text-decoration:none;">JuanPedro<span>.</span></a>
+    <div class="nav-right">
+      <a href="/#contacto" class="btn btn-hard">Contacto</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ LISTADO DE APPS ============ -->
+<section id="apps-lista">
+  <div class="container">
+    <span class="eyebrow">Apps</span>
+    <h1 class="section-title">Apps para descargar</h1>
+    <p class="section-lead">Apps para Android hechas por mí. Son gratis, se descargan como archivo .apk y se instalan directo en tu celular — cada una trae sus propias instrucciones si hace falta algún paso extra.</p>
+
+    <div class="apps-grid" id="appsGrid"></div>
+  </div>
+</section>
+
+<!-- ============ DONACIONES ============ -->
+<section id="donaciones">
+  <div class="container">
+    <div class="donation-card">
+      <div>
+        <span class="eyebrow">Donaciones</span>
+        <h2 class="section-title">¿Te sirvió alguna app?</h2>
+        <p class="section-lead">Las apps son y van a seguir siendo gratis. Si alguna te resultó útil y querés bancar que siga habiendo más, podés tirarme unos pesos por Mercado Pago — es totalmente opcional.</p>
+      </div>
+      <a href="https://link.mercadopago.com.ar/coimeroviejo" target="_blank" rel="noopener" class="btn btn-hard">Invitame un cafecito</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MODAL DE APP ============ -->
+<div class="app-modal-overlay" id="appModalOverlay">
+  <div class="app-modal" role="dialog" aria-modal="true" aria-labelledby="appModalTitle">
+    <button class="app-modal-close" id="appModalClose" aria-label="Cerrar">
+      <svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+    <img class="app-modal-banner" id="appModalBanner" src="" alt="">
+    <div class="app-modal-body">
+      <div class="app-modal-header">
+        <img class="app-modal-icon" id="appModalIcon" src="" alt="">
+        <div class="app-modal-title">
+          <h2 id="appModalTitle"></h2>
+          <div class="app-modal-meta" id="appModalMeta"></div>
+        </div>
+      </div>
+      <p class="app-modal-desc" id="appModalDesc"></p>
+      <a class="btn btn-hard btn-block app-modal-download" id="appModalDownload" download>Descargar APK</a>
+      <div class="app-modal-instructions" id="appModalInstructions"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container footer-grid">
+    <a href="/" class="logo" style="text-decoration:none;">JuanPedro<span>.</span></a>
+    <ul class="footer-links">
+      <li><a href="/#contacto">Contacto</a></li>
+      <li><a href="/politica-de-privacidad/">Política de privacidad</a></li>
+    </ul>
+    <span class="footer-note">© 2026 JuanPedro</span>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
