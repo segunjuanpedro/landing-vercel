@@ -3,31 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JuanPedro</title>
-<link rel="icon" type="image/webp" href="assets/images/logo.webp">
-<meta name="description" content="Desarrollo de sitios web a medida con animación, 3D interactivo y tiendas online. Diseño y código propio para marcas y productos. Buenos Aires, Argentina.">
-<meta name="keywords" content="desarrollo web a medida, diseño web personalizado, sitios web Buenos Aires, desarrollo e-commerce, 3D interactivo, animación web">
+<title>Desarrollo web a medida en Buenos Aires | JuanPedro</title>
+<meta name="description" content="Diseño y desarrollo de sitios web a medida en Buenos Aires: landings, tiendas online, animación y 3D interactivo, con código propio. Planes desde $225.000.">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://juanpedro.com.ar/">
+<meta name="author" content="Juan Pedro">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" href="/assets/images/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="JuanPedro">
-<meta property="og:title" content="Desarrollo web a medida, 3D y tiendas online | JuanPedro">
-<meta property="og:description" content="Sitios web personalizados para marcas y productos, con animación, 3D interactivo y e-commerce cuando el proyecto lo necesita.">
+<meta property="og:title" content="Desarrollo web a medida en Buenos Aires | JuanPedro">
+<meta property="og:description" content="Sitios web a medida para marcas y productos, con animación, 3D interactivo y tiendas online cuando el proyecto lo necesita.">
 <meta property="og:url" content="https://juanpedro.com.ar/">
-<meta property="og:image" content="https://juanpedro.com.ar/assets/images/og-cover.png">
+<meta property="og:image" content="https://juanpedro.com.ar/assets/images/og-cover.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="JuanPedro: desarrollo web a medida, con un terrario 3D interactivo">
 <meta property="og:locale" content="es_AR">
 
 <!-- Twitter -->
-<meta name="twitter:image" content="https://juanpedro.com.ar/assets/images/og-cover.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Desarrollo web a medida, 3D y tiendas online">
-<meta name="twitter:description" content="Sitios web personalizados para marcas y productos, con animación, 3D interactivo y e-commerce cuando el proyecto lo necesita.">
+<meta name="twitter:title" content="Desarrollo web a medida en Buenos Aires | JuanPedro">
+<meta name="twitter:description" content="Sitios web a medida para marcas y productos, con animación, 3D interactivo y tiendas online cuando el proyecto lo necesita.">
+<meta name="twitter:image" content="https://juanpedro.com.ar/assets/images/og-cover.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js" defer></script>
@@ -39,18 +47,75 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "JuanPedro",
-  "url": "https://juanpedro.com.ar",
-  "description": "Desarrollo de sitios web personalizados para marcas, productos y proyectos, incorporando animación, 3D interactivo y comercio electrónico cuando aporta valor.",
-  "image": "https://juanpedro.com.ar/assets/images/og-cover.png",
-  "areaServed": "Argentina",
-  "email": "contacto@juanpedro.com.ar",
-  "telephone": "+54 221 643-9689",
-  "sameAs": [
-    "https://www.instagram.com/segunjuanpedro/"
-  ],
-  "priceRange": "$225.000 - $700.000 ARS"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://juanpedro.com.ar/#website",
+      "url": "https://juanpedro.com.ar/",
+      "name": "JuanPedro",
+      "inLanguage": "es-AR",
+      "publisher": { "@id": "https://juanpedro.com.ar/#negocio" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://juanpedro.com.ar/#juanpedro",
+      "name": "Juan Pedro",
+      "jobTitle": "Desarrollador web y modelador 3D",
+      "url": "https://juanpedro.com.ar/",
+      "sameAs": ["https://www.instagram.com/segunjuanpedro/"]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://juanpedro.com.ar/#negocio",
+      "name": "JuanPedro",
+      "url": "https://juanpedro.com.ar/",
+      "description": "Diseño y desarrollo de sitios web a medida con código propio: landings, tiendas online, animaciones Lottie y modelos 3D interactivos para marcas y productos.",
+      "image": "https://juanpedro.com.ar/assets/images/og-cover.jpg",
+      "logo": "https://juanpedro.com.ar/assets/images/icon-512.png",
+      "email": "contacto@juanpedro.com.ar",
+      "telephone": "+54 221 643-9689",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Buenos Aires",
+        "addressCountry": "AR"
+      },
+      "areaServed": { "@type": "Country", "name": "Argentina" },
+      "founder": { "@id": "https://juanpedro.com.ar/#juanpedro" },
+      "sameAs": ["https://www.instagram.com/segunjuanpedro/"],
+      "priceRange": "$225.000 - $700.000 ARS",
+      "knowsAbout": ["Desarrollo web", "Diseño web", "E-commerce", "Modelado 3D", "Three.js", "Animación Lottie", "SEO técnico"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Planes de desarrollo web",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Esencial: landing personalizada",
+            "description": "Diseño y desarrollo a medida, responsive, hasta 5 secciones, formulario de contacto y SEO técnico básico.",
+            "price": "225000",
+            "priceCurrency": "ARS",
+            "url": "https://juanpedro.com.ar/#planes"
+          },
+          {
+            "@type": "Offer",
+            "name": "Interactivo: web con animación y 3D",
+            "description": "Todo lo del plan Esencial, animaciones personalizadas, hasta 3 animaciones Lottie y 1 modelo 3D interactivo.",
+            "price": "445000",
+            "priceCurrency": "ARS",
+            "url": "https://juanpedro.com.ar/#planes"
+          },
+          {
+            "@type": "Offer",
+            "name": "E-commerce: tienda personalizada",
+            "description": "Catálogo de productos, carrito y proceso de compra, variantes y configuraciones, con animación y 3D según el proyecto.",
+            "price": "700000",
+            "priceCurrency": "ARS",
+            "url": "https://juanpedro.com.ar/#planes"
+          }
+        ]
+      }
+    }
+  ]
 }
 </script>
 
@@ -122,7 +187,7 @@
   <div class="container hero-grid">
     <div class="hero-copy">
       <span class="tag"><span class="dot"></span>Desarrollo web · Buenos Aires</span>
-      <h1 class="display-1">Sitios web para mostrar lo que hacés<span class="accent-dot">.</span></h1>
+      <h1 class="display-1">Desarrollo web a medida para mostrar lo que hacés<span class="accent-dot">.</span></h1>
       <p class="lead">Diseño y desarrollo cada sitio con código propio, pensando en lo que necesitás comunicar y en cómo las personas van a usarlo. Cuando ayuda a vender o a explicar, sumo animación, modelos 3D o una tienda a medida.</p>
     </div>
     <div class="hero-stage">
@@ -205,7 +270,7 @@
 </section>
 
 <!-- ============ PROYECTOS EN LÍNEA ============ -->
-<!-- Las tarjetas se generan desde el array PROJECTS de script.js -->
+<!-- Para sumar un proyecto: copiar un <article class="project">. Las capturas van en assets/images/proyectos/ -->
 <section id="proyectos" class="section-dark">
   <div class="container projects">
     <div class="section-head section-head--split">
@@ -215,7 +280,38 @@
       </div>
       <p class="lead">Podés entrar, usarlos y ver cómo se comportan el 3D, los editores y las tiendas con usuarios de verdad.</p>
     </div>
-    <div class="project-list" id="project-list"></div>
+    <div class="project-list">
+      <article class="project">
+        <div class="project-media">
+          <div class="browser">
+            <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">plumah.com.ar</span></div>
+            <div class="browser-screen"><img src="assets/images/proyectos/plumah.webp" alt="Editor 3D de PlumAh! con un abanico personalizado con estampa propia" width="1200" height="962" loading="lazy"></div>
+          </div>
+        </div>
+        <div class="project-info">
+          <span class="label label--ok"><span class="dot dot--light"></span>En línea</span>
+          <h3>PlumAh!</h3>
+          <p>Sitio para una marca fabricante de abanicos. Incluye un editor 3D donde cada cliente diseña su abanico con su estampa y su logo, y envía el diseño para cotizar.</p>
+          <ul class="chips"><li class="chip">Editor 3D</li><li class="chip">Cards 3D interactivas</li><li class="chip">Panel de admin</li><li class="chip">Tiendanube</li></ul>
+          <a class="btn btn-on-dark" href="https://plumah.com.ar/" target="_blank" rel="noopener" style="--btn-shadow:#C4006A">Visitar sitio <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg><span class="visually-hidden"> de PlumAh! (se abre en otra pestaña)</span></a>
+        </div>
+      </article>
+      <article class="project">
+        <div class="project-media">
+          <div class="browser">
+            <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">remeritas.com.ar</span></div>
+            <div class="browser-screen"><img src="assets/images/proyectos/remeritas.webp" alt="Home de Remeritas con una remera en un visor 3D y el buscador de nombre de tienda" width="1200" height="1360" loading="lazy"></div>
+          </div>
+        </div>
+        <div class="project-info">
+          <span class="label label--ok"><span class="dot dot--light"></span>En línea</span>
+          <h3>Remeritas</h3>
+          <p>Plataforma donde cada persona abre su tienda de remeras estampadas. El diseño se ve sobre un modelo 3D a medida que se edita, y cada tienda tiene su propio subdominio.</p>
+          <ul class="chips"><li class="chip">Visor 3D en vivo</li><li class="chip">Tiendas con subdominio</li><li class="chip">Planes de suscripción</li><li class="chip">Marketplace curado</li></ul>
+          <a class="btn btn-on-dark" href="https://remeritas.com.ar" target="_blank" rel="noopener" style="--btn-shadow:#0E7C8A">Visitar sitio <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg><span class="visually-hidden"> de Remeritas (se abre en otra pestaña)</span></a>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
