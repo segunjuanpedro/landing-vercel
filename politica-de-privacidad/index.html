@@ -11,7 +11,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 
 <!-- Vercel Web Analytics -->
@@ -23,21 +23,65 @@
 <body>
 
 <!-- ============ HEADER ============ -->
-<header>
-  <nav class="nav">
-    <a href="/" class="logo" style="text-decoration:none;">JuanPedro<span>.</span></a>
-    <div class="nav-right">
-      <a href="/#contacto" class="btn btn-hard">Contacto</a>
+<header class="site-header">
+  <div class="container">
+    <div class="nav">
+      <a href="/" class="logo">
+        <img src="/assets/images/logo-128.webp" alt="" width="38" height="38">
+        <span class="logo-text">JuanPedro<span class="accent-dot">.</span></span>
+      </a>
+      <nav aria-label="Principal">
+        <ul class="nav-links">
+          <li><a href="/#servicios">Servicios</a></li>
+          <li><a href="/#proyectos">Proyectos</a></li>
+          <li><a href="/#planes">Planes</a></li>
+          <li><a href="/apps/">Apps</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <a href="/#contacto" class="btn nav-cta">Hablemos</a>
+      <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16"/><path d="M4 16h16"/></svg>
+      </button>
     </div>
-  </nav>
+  </div>
 </header>
 
+<!-- Menú mobile (pantalla completa) -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+  <div class="site-header">
+    <div class="container">
+      <div class="nav">
+        <a href="/" class="logo">
+          <img src="/assets/images/logo-128.webp" alt="" width="34" height="34">
+          <span class="logo-text">JuanPedro<span class="accent-dot">.</span></span>
+        </a>
+        <button type="button" class="nav-toggle" data-menu-close aria-label="Cerrar menú">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <ul class="mobile-menu-links">
+    <li><a href="/#servicios">Servicios <span aria-hidden="true">→</span></a></li>
+    <li><a href="/#proyectos">Proyectos <span aria-hidden="true">→</span></a></li>
+    <li><a href="/#planes">Planes <span aria-hidden="true">→</span></a></li>
+    <li><a href="/apps/">Apps <span aria-hidden="true">→</span></a></li>
+    <li><a href="/#contacto">Contacto <span aria-hidden="true">→</span></a></li>
+  </ul>
+  <div class="mobile-menu-foot">
+    <a href="/#contacto" class="btn btn-solid btn-block">Empezar un proyecto</a>
+    <a href="mailto:contacto@juanpedro.com.ar">contacto@juanpedro.com.ar</a>
+  </div>
+</div>
+
 <!-- ============ CONTENIDO LEGAL ============ -->
+<main>
 <section class="legal">
   <div class="container legal-content">
-    <span class="eyebrow">Legal</span>
+    <span class="tag">Legal</span>
     <h1 class="section-title">Política de Privacidad</h1>
-    <p class="legal-updated">Última actualización: 25 de agosto de 2026</p>
+    <p class="legal-updated">Última actualización: 6 de octubre de 2026</p>
 
     <p>Esta política explica qué información se recopila a través de este sitio (<strong>juanpedro.com.ar</strong>), con qué finalidad se utiliza y cómo podés ejercer tus derechos sobre tus datos personales.</p>
 
@@ -60,7 +104,6 @@
 
     <h2>4. Cómo se comparten los datos</h2>
     <p>Los datos que enviás por el formulario de contacto se procesan a través de Resend, un proveedor de envío de emails, con el único fin de hacerte llegar tu mensaje a nuestra casilla de correo. El sitio está alojado en Vercel, que procesa datos técnicos de forma anónima para el funcionamiento y la analítica del sitio. No vendemos ni compartimos tus datos con terceros para fines comerciales.</p>
-    <p>La sección "Tienda" del sitio es una demostración funcional: no procesa pagos reales ni almacena datos personales asociados a compras.</p>
 
     <h2>5. Conservación de datos</h2>
     <p>Los mensajes recibidos por el formulario de contacto se conservan solo durante el tiempo necesario para responder tu consulta y por razones administrativas razonables, luego de lo cual son eliminados.</p>
@@ -69,7 +112,7 @@
     <p>De acuerdo con la Ley 25.326 de Protección de Datos Personales de la República Argentina, tenés derecho a acceder, rectificar o solicitar la eliminación de tus datos personales escribiendo a <a href="mailto:contacto@juanpedro.com.ar">contacto@juanpedro.com.ar</a>. La Agencia de Acceso a la Información Pública, en su carácter de Órgano de Control de la Ley 25.326, tiene la atribución de atender denuncias y reclamos relacionados con el incumplimiento de las normas sobre protección de datos personales.</p>
 
     <h2>7. Enlaces a sitios de terceros</h2>
-    <p>Este sitio puede incluir enlaces a redes sociales o a sitios de demostración externos. No nos hacemos responsables por las prácticas de privacidad de esos sitios.</p>
+    <p>Este sitio puede incluir enlaces a redes sociales o a sitios de proyectos de clientes. No nos hacemos responsables por las prácticas de privacidad de esos sitios.</p>
 
     <h2>8. Cambios en esta política</h2>
     <p>Podemos actualizar esta política ocasionalmente para reflejar cambios en el sitio o en la normativa aplicable. La fecha de la última actualización figura al comienzo de esta página.</p>
@@ -77,21 +120,32 @@
     <h2>9. Contacto</h2>
     <p>Ante cualquier duda sobre esta política de privacidad, escribinos a <a href="mailto:contacto@juanpedro.com.ar">contacto@juanpedro.com.ar</a>.</p>
 
-    <a href="/" class="btn btn-outline" style="margin-top:24px;">Volver al inicio</a>
+    <a href="/" class="btn btn-line">Volver al inicio</a>
   </div>
 </section>
+</main>
 
 <!-- ============ FOOTER ============ -->
-<footer>
+<footer class="site-footer">
   <div class="container footer-grid">
-    <a href="/" class="logo" style="text-decoration:none;">JuanPedro<span>.</span></a>
-    <ul class="footer-links">
-      <li><a href="/#contacto">Contacto</a></li>
-      <li><a href="/politica-de-privacidad/">Política de privacidad</a></li>
-    </ul>
+    <a href="/" class="logo">
+      <img src="/assets/images/logo-128.webp" alt="" width="40" height="40" loading="lazy">
+      <span class="logo-text">JuanPedro<span class="accent-dot">.</span></span>
+    </a>
+    <nav aria-label="Pie de página">
+      <ul class="footer-links">
+        <li><a href="/#servicios">Servicios</a></li>
+        <li><a href="/#proyectos">Proyectos</a></li>
+        <li><a href="/#planes">Planes</a></li>
+        <li><a href="/apps/">Apps</a></li>
+        <li><a href="/#contacto">Contacto</a></li>
+        <li><a href="/politica-de-privacidad/">Política de privacidad</a></li>
+      </ul>
+    </nav>
     <span class="footer-note">© 2026 JuanPedro</span>
   </div>
 </footer>
 
+<script src="/nav.js" defer></script>
 </body>
 </html>

@@ -153,12 +153,12 @@ function openAppModal(index){
   }
 
   overlay.classList.add('open');
-  document.body.classList.add('modal-open');
+  document.body.classList.add('is-locked');
 }
 
 function closeAppModal(){
   overlay.classList.remove('open');
-  document.body.classList.remove('modal-open');
+  document.body.classList.remove('is-locked');
 }
 
 modalClose.addEventListener('click', closeAppModal);

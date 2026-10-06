@@ -29,7 +29,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 
 <!-- Vercel Web Analytics -->
@@ -41,45 +41,92 @@
 <body>
 
 <!-- ============ HEADER ============ -->
-<header>
-  <nav class="nav">
-    <a href="/" class="logo" style="text-decoration:none;">JuanPedro<span>.</span></a>
-    <div class="nav-right">
-      <a href="/#contacto" class="btn btn-hard">Contacto</a>
+<header class="site-header">
+  <div class="container">
+    <div class="nav">
+      <a href="/" class="logo">
+        <img src="/assets/images/logo-128.webp" alt="" width="38" height="38">
+        <span class="logo-text">JuanPedro<span class="accent-dot">.</span></span>
+      </a>
+      <nav aria-label="Principal">
+        <ul class="nav-links">
+          <li><a href="/#servicios">Servicios</a></li>
+          <li><a href="/#proyectos">Proyectos</a></li>
+          <li><a href="/#planes">Planes</a></li>
+          <li><a href="/apps/" class="is-active" aria-current="page">Apps</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <a href="/#contacto" class="btn nav-cta">Hablemos</a>
+      <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16"/><path d="M4 16h16"/></svg>
+      </button>
     </div>
-  </nav>
+  </div>
 </header>
 
+<!-- Menú mobile (pantalla completa) -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+  <div class="site-header">
+    <div class="container">
+      <div class="nav">
+        <a href="/" class="logo">
+          <img src="/assets/images/logo-128.webp" alt="" width="34" height="34">
+          <span class="logo-text">JuanPedro<span class="accent-dot">.</span></span>
+        </a>
+        <button type="button" class="nav-toggle" data-menu-close aria-label="Cerrar menú">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <ul class="mobile-menu-links">
+    <li><a href="/#servicios">Servicios <span aria-hidden="true">→</span></a></li>
+    <li><a href="/#proyectos">Proyectos <span aria-hidden="true">→</span></a></li>
+    <li><a href="/#planes">Planes <span aria-hidden="true">→</span></a></li>
+    <li><a href="/apps/" class="is-active" aria-current="page">Apps <span aria-hidden="true">→</span></a></li>
+    <li><a href="/#contacto">Contacto <span aria-hidden="true">→</span></a></li>
+  </ul>
+  <div class="mobile-menu-foot">
+    <a href="/#contacto" class="btn btn-solid btn-block">Empezar un proyecto</a>
+    <a href="mailto:contacto@juanpedro.com.ar">contacto@juanpedro.com.ar</a>
+  </div>
+</div>
+
+<main>
 <!-- ============ LISTADO DE APPS ============ -->
 <section id="apps-lista">
   <div class="container">
-    <span class="eyebrow">Apps</span>
-    <h1 class="section-title">Apps para descargar</h1>
-    <p class="section-lead">Apps para Android hechas por mí. Son gratis, se descargan como archivo .apk y se instalan directo en tu celular — cada una trae sus propias instrucciones si hace falta algún paso extra.</p>
+    <div class="page-head">
+      <span class="tag">Apps</span>
+      <h1 class="section-title">Apps para descargar</h1>
+      <p class="lead">Apps para Android hechas por mí. Son gratis, se descargan como archivo .apk y se instalan directo en tu celular. Cada una trae sus propias instrucciones si hace falta algún paso extra.</p>
+    </div>
 
     <div class="apps-grid" id="appsGrid"></div>
   </div>
 </section>
 
 <!-- ============ DONACIONES ============ -->
-<section id="donaciones">
+<section id="donaciones" class="section-alt">
   <div class="container">
     <div class="donation-card">
       <div>
-        <span class="eyebrow">Donaciones</span>
+        <span class="tag">Donaciones</span>
         <h2 class="section-title">¿Te sirvió alguna app?</h2>
-        <p class="section-lead">Las apps son y van a seguir siendo gratis. Si alguna te resultó útil y querés que siga haciendo más, podés tirarme unos pesos por Mercado Pago — es totalmente opcional.</p>
+        <p class="lead">Las apps son y van a seguir siendo gratis. Si alguna te resultó útil y querés que siga haciendo más, podés tirarme unos pesos por Mercado Pago. Es totalmente opcional.</p>
       </div>
-      <a href="https://link.mercadopago.com.ar/coimeroviejo" target="_blank" rel="noopener" class="btn btn-hard">Invitame un cafecito</a>
+      <a href="https://link.mercadopago.com.ar/coimeroviejo" target="_blank" rel="noopener" class="btn btn-solid">Invitame un cafecito</a>
     </div>
   </div>
 </section>
+</main>
 
 <!-- ============ MODAL DE APP ============ -->
 <div class="app-modal-overlay" id="appModalOverlay">
   <div class="app-modal" role="dialog" aria-modal="true" aria-labelledby="appModalTitle">
     <button class="app-modal-close" id="appModalClose" aria-label="Cerrar">
-      <svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg>
     </button>
     <img class="app-modal-banner" id="appModalBanner" src="" alt="">
     <div class="app-modal-body">
@@ -91,13 +138,14 @@
         </div>
       </div>
       <p class="app-modal-desc" id="appModalDesc"></p>
-      <a class="btn btn-hard btn-block app-modal-download" id="appModalDownload" download>Descargar APK</a>
+      <a class="btn btn-solid btn-block app-modal-download" id="appModalDownload" download>Descargar APK</a>
       <div class="app-modal-instructions" id="appModalInstructions"></div>
     </div>
   </div>
 </div>
 
 
+<script src="/nav.js" defer></script>
 <script src="script.js" defer></script>
 </body>
 </html>

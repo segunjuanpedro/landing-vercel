@@ -28,7 +28,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js" defer></script>
@@ -50,7 +50,7 @@
   "sameAs": [
     "https://www.instagram.com/segunjuanpedro/"
   ],
-  "priceRange": "$450.000 - $890.000 ARS"
+  "priceRange": "$225.000 - $700.000 ARS"
 }
 </script>
 
@@ -63,318 +63,307 @@
 <body>
 
 <!-- ============ HEADER ============ -->
-<header>
-  <nav class="nav">
-    <div class="logo"><img src="assets/images/logo.webp" alt="" class="logo-img">JuanPedro<span>.</span></div>
-    <ul class="nav-links">
-      <li><a href="#modelado">Modelado 3D</a></li>
-      <li><a href="#tienda">Tienda</a></li>
-      <li><a href="#animaciones">Animaciones</a></li>
-      <li><a href="#planes">Planes</a></li>
-      <li><a href="/apps/">Apps</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-    <div class="nav-right">
-      <a href="https://tinta-y-trama.vercel.app/" target="_blank" rel="noopener" class="btn btn-hard">Ver demo</a>
+<header class="site-header">
+  <div class="container">
+    <div class="nav">
+      <a href="#inicio" class="logo">
+        <img src="assets/images/logo-128.webp" alt="" width="38" height="38">
+        <span class="logo-text">JuanPedro<span class="accent-dot">.</span></span>
+      </a>
+      <nav aria-label="Principal">
+        <ul class="nav-links">
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#planes">Planes</a></li>
+          <li><a href="/apps/">Apps</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <a href="#contacto" class="btn nav-cta">Hablemos</a>
+      <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16"/><path d="M4 16h16"/></svg>
+      </button>
     </div>
-  </nav>
+  </div>
 </header>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <span class="eyebrow">Desarrollo web</span>
-      <h1>Sitios web <br> para mostrar lo que hacés.</h1>
-      <p class="section-lead">Cada proyecto parte de lo que necesitás comunicar y de la forma en que las personas van a interactuar con él. Diseño y desarrollo el sitio con código propio, incorporando animación, contenido 3D o herramientas de venta cuando realmente ayudan a mostrar mejor un producto o una idea.</p>
-      <div class="hero-cta">
-        <a href="#contacto" class="btn btn-hard">Empezar un proyecto</a>
-      </div>
-    </div>
-    <div class="col-media">
-      <div id="glb-viewer" class="viewer3d-container"></div>
-      <span class="viewer3d-hint">Click y arrastrá para rotar</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============ MODELADO 3D ============ -->
-<section id="modelado">
-  <div class="container split reverse visor">
-    <div class="col-text">
-      <span class="eyebrow">Modelado 3D</span>
-      <h2 class="section-title">Tus productos pueden verse en 3D</h2>
-      <p class="section-lead">Un visor 3D permite recorrer una pieza, apreciar sus materiales y mostrar cómo se relacionan sus partes. Es especialmente útil para productos técnicos, artesanales o personalizables que necesitan explicar su forma y sus detalles.</p>
-      <ul class="feature-list">
-        <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Modelos 3D optimizados para la web</li>
-        <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Interacción con mouse o pantalla táctil</li>
-      </ul>
-      <a href="/editor/" class="editor-cta" aria-label="Ver ejemplo interactivo: personalizador de productos en tiempo real">
-        Ver ejemplo
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h9.5M8.5 3.5L13 8l-4.5 4.5" stroke="#1A1D21" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-    <div class="col-media">
-      <div class="editor-preview-wrap">
-        <a href="/editor/" class="editor-preview-link" aria-label="Ver ejemplo interactivo: personalizador de productos en tiempo real">
-          <img src="assets/images/editor-snapshot.webp" alt="Personalizador de productos en tiempo real" class="editor-preview-img" />
+<!-- Menú mobile (pantalla completa) -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+  <div class="site-header">
+    <div class="container">
+      <div class="nav">
+        <a href="#inicio" class="logo">
+          <img src="assets/images/logo-128.webp" alt="" width="34" height="34">
+          <span class="logo-text">JuanPedro<span class="accent-dot">.</span></span>
         </a>
+        <button type="button" class="nav-toggle" data-menu-close aria-label="Cerrar menú">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg>
+        </button>
       </div>
+    </div>
+  </div>
+  <ul class="mobile-menu-links">
+    <li><a href="#servicios">Servicios <span aria-hidden="true">→</span></a></li>
+    <li><a href="#proyectos">Proyectos <span aria-hidden="true">→</span></a></li>
+    <li><a href="#planes">Planes <span aria-hidden="true">→</span></a></li>
+    <li><a href="/apps/">Apps <span aria-hidden="true">→</span></a></li>
+    <li><a href="#contacto">Contacto <span aria-hidden="true">→</span></a></li>
+  </ul>
+  <div class="mobile-menu-foot">
+    <a href="#contacto" class="btn btn-solid btn-block">Empezar un proyecto</a>
+    <a href="mailto:contacto@juanpedro.com.ar">contacto@juanpedro.com.ar</a>
+  </div>
+</div>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section id="inicio" class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="tag"><span class="dot"></span>Desarrollo web · Buenos Aires</span>
+      <h1 class="display-1">Sitios web para mostrar lo que hacés<span class="accent-dot">.</span></h1>
+      <p class="lead">Diseño y desarrollo cada sitio con código propio, pensando en lo que necesitás comunicar y en cómo las personas van a usarlo. Cuando ayuda a vender o a explicar, sumo animación, modelos 3D o una tienda a medida.</p>
+    </div>
+    <div class="hero-stage">
+      <div id="glb-viewer" class="viewer3d" role="img" aria-label="Terrario de vidrio en 3D, se puede rotar"></div>
+      <div class="hero-stage-caption" aria-hidden="true">
+        <span class="label label-desk">Modelo 3D interactivo</span>
+        <span class="label">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>
+          <span class="hint-mouse">Arrastrá para rotar</span><span class="hint-touch">Deslizá para rotar</span>
+        </span>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a href="#contacto" class="btn btn-solid">Empezar un proyecto</a>
+      <a href="#proyectos" class="text-link">Ver sitios en línea</a>
     </div>
   </div>
 </section>
 
+<!-- ============ SERVICIOS ============ -->
+<section id="servicios" class="section-alt">
+  <div class="container services">
+    <div class="section-head">
+      <span class="tag">Servicios</span>
+      <h2 class="section-title">Lo que puedo sumarle a tu sitio</h2>
+    </div>
+    <div class="bento">
 
-<!-- ============ TIENDA ============ -->
-<section id="tienda">
-  <div class="container">
-      <div class="shop-heading">
+      <article class="service service--3d is-dark">
+        <div class="service-body">
+          <span class="label label--light">01 · Modelado 3D</span>
+          <h3>Tus productos, en 3D y desde cualquier ángulo</h3>
+          <p>Un visor 3D deja recorrer la pieza, ver sus materiales y entender cómo se arma. Ideal para productos técnicos, artesanales o personalizables.</p>
+          <ul class="checks">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Modelos optimizados para la web</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Se usan con mouse o pantalla táctil</li>
+          </ul>
+          <a href="/editor/" target="_blank" rel="noopener" class="btn btn-on-dark">Probar el editor interactivo
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+          </a>
+        </div>
+        <img src="assets/images/editor-snapshot.webp" alt="Visor 3D con un buzo, una taza y un paraguas personalizables" width="1200" height="1200" loading="lazy">
+      </article>
+
+      <article class="service service--anim">
+        <button type="button" class="lottie-box" id="lottie-sample" aria-label="Reproducir animación de ejemplo: caja de regalo que se abre"></button>
+        <span class="label label--accent">02 · Animación</span>
+        <h3>Animaciones que guían al usuario</h3>
+        <p>Explican una acción, acompañan una transición o responden a un clic. Livianas y sin trabar la navegación.</p>
+      </article>
+
+      <article class="service service--shop">
+        <div class="service-body">
+          <span class="label label--accent">03 · E-commerce</span>
+          <h3>Una tienda pensada para tu producto</h3>
+          <p>Si tu producto necesita variantes, un configurador o una presentación especial, el catálogo se diseña alrededor de esa experiencia y forma parte del mismo sitio.</p>
+          <ul class="checks">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Carrito, variantes y configuraciones</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Fotos de producto hechas en 3D</li>
+          </ul>
+        </div>
+        <ul class="products">
+          <li><figure>
+            <img src="assets/images/tostadora.webp" alt="Tostadora verde renderizada en 3D" width="640" height="640" loading="lazy">
+            <figcaption>Tostadora<span>$8.500</span></figcaption>
+          </figure></li>
+          <li><figure>
+            <img src="assets/images/pullover.webp" alt="Pullover amarillo con estampa de gladiador renderizado en 3D" width="640" height="640" loading="lazy">
+            <figcaption>Pullover<span>$14.900</span></figcaption>
+          </figure></li>
+          <li><figure>
+            <img src="assets/images/camara.webp" alt="Cámara de fotos rosa renderizada en 3D" width="640" height="640" loading="lazy">
+            <figcaption>Cámara<span>$3.200</span></figcaption>
+          </figure></li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROYECTOS EN LÍNEA ============ -->
+<!-- Las tarjetas se generan desde el array PROJECTS de script.js -->
+<section id="proyectos" class="section-dark">
+  <div class="container projects">
+    <div class="section-head section-head--split">
       <div>
-        <span class="eyebrow">E-commerce</span>
-        <h2 class="section-title">Una tienda que puede adaptarse al producto</h2>
-        <p class="section-lead">Cuando un producto necesita variantes, configuradores, animaciones o una presentación más específica, el catálogo puede diseñarse alrededor de esa experiencia y formar parte del mismo sitio.</p>
+        <span class="tag"><span class="dot"></span>Proyectos en línea</span>
+        <h2 class="section-title">Sitios que ya están funcionando</h2>
       </div>
-      <div class="cart-indicator" id="cartBtn" aria-label="Carrito">
-        <div class="cart-animation" id="cartAnimation">
-          <span class="cart-animation-placeholder">0</span>
-        </div>
-        <span class="cart-count" id="cartCount">0</span>
-      </div>
+      <p class="lead">Podés entrar, usarlos y ver cómo se comportan el 3D, los editores y las tiendas con usuarios de verdad.</p>
     </div>
-    <div class="product-grid">
-
-      <div class="product-card">
-        <div class="product-thumb">
-          <img src="assets/images/tostador.png" alt="Tostador color verde — producto de ejemplo en tienda online integrada" />
-        </div>
-        <div class="product-info">
-          <h3>Tostador/a</h3>
-          <span class="product-price">$8.500</span>
-          <p>Verde</p>
-          <div class="product-actions">
-            <button class="btn btn-outline toggle-btn btn-block" data-product="tostador" onclick="toggleCartItem('tostador')">Agregar</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-thumb">
-          <img src="assets/images/buzo.png" alt="Pullover con estampa gladiador — producto de ejemplo en tienda online" />
-        </div>
-        <div class="product-info">
-          <h3>Pullover</h3>
-          <span class="product-price">$14.900</span>
-          <p>Estampa gladiador.</p>
-          <div class="product-actions">
-            <button class="btn btn-outline toggle-btn btn-block" data-product="buzo" onclick="toggleCartItem('buzo')">Agregar</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-thumb">
-          <img src="assets/images/camara.png" alt="Cámara de fotos rosa — producto de ejemplo en tienda online" />
-        </div>
-        <div class="product-info">
-          <h3>Cámara de fotos</h3>
-          <span class="product-price">$3.200</span>
-          <p>Rosadita.</p>
-          <div class="product-actions">
-            <button class="btn btn-outline toggle-btn btn-block" data-product="camara" onclick="toggleCartItem('camara')">Agregar</button>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    <div class="project-list" id="project-list"></div>
   </div>
 </section>
-
-
-<!-- ============ ANIMACIONES LOTTIE ============ -->
-<section id="animaciones">
-  <div class="container split">
-    <div class="col-media">
-      <div class="media-frame">
-        <div id="lottie-sample"></div>
-      </div>
-    </div>
-    <div class="col-text">
-      <span class="eyebrow">Animación</span>
-      <h2 class="section-title">Animación para hacer más clara la experiencia</h2>
-      <p class="section-lead">La animación puede explicar una acción, acompañar una transición o darle al usuario una respuesta inmediata. Desarrollo estos recursos para que formen parte de la interfaz sin convertirlos en un obstáculo para la navegación.</p>
-      <ul class="feature-list">
-        <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Animaciones livianas y adaptables a distintas pantallas</li>
-        <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Pueden responder al scroll, hover, clic o interacción del usuario</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 
 <!-- ============ PLANES ============ -->
 <section id="planes">
-  <div class="container">
-    <span class="eyebrow">Proyectos</span>
-    <h2 class="section-title">Una base clara para empezar tu proyecto</h2>
-    <p class="section-lead">Tres puntos de partida para distintos tipos de proyecto. El alcance se puede adaptar según lo que necesite cada sitio.</p>
-
-    <div class="promo-banner" id="promoBanner">
-      <span class="promo-badge">-50%</span>
-      <span class="promo-text">Descuento por tiempo limitado en todos los planes</span>
-      <div class="promo-countdown" aria-live="polite">
-        <div class="countdown-unit"><span class="countdown-value" id="cd-days">00</span><span class="countdown-label">días</span></div>
-        <div class="countdown-unit"><span class="countdown-value" id="cd-hours">00</span><span class="countdown-label">hs</span></div>
-        <div class="countdown-unit"><span class="countdown-value" id="cd-mins">00</span><span class="countdown-label">min</span></div>
-        <div class="countdown-unit"><span class="countdown-value" id="cd-secs">00</span><span class="countdown-label">seg</span></div>
+  <div class="container plans">
+    <div class="section-head section-head--split">
+      <div>
+        <span class="tag">Planes</span>
+        <h2 class="section-title">Una base clara para empezar</h2>
+        <p class="lead">Tres puntos de partida. El alcance se ajusta a lo que necesite cada sitio.</p>
       </div>
+      <span class="promo"><b>-50%</b>Precio de lanzamiento</span>
     </div>
 
-    <div class="plans-grid">
+    <div class="plans-scroller">
+      <ul class="plan-grid" id="plan-grid">
 
-      <div class="plan-card">
-        <div class="plan-tag">Esencial</div>
-        <h3>Landing personalizada</h3>
-        <div class="plan-price">
-          <span class="price-old">$450.000</span>
-          <span class="price-new" data-full="$450.000<sup>ARS</sup>">$225.000<sup>ARS</sup></span>
-        </div>
-        <div class="plan-period">desde · pago único</div>
-        <ul class="plan-list">
-          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Diseño y desarrollo personalizado</p></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Diseño responsive para todas las pantallas</p></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Hasta 5 secciones</p></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Formulario de contacto</p></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>SEO técnico básico</p></li>
-        </ul>
-        <a href="#contacto" class="btn btn-outline btn-block">Consultar proyecto</a>
-      </div>
+        <li class="plan">
+          <div class="plan-head">
+            <span class="label">Esencial</span>
+            <h3>Landing personalizada</h3>
+          </div>
+          <div class="plan-price">
+            <s class="price-old"><span class="visually-hidden">Antes </span>$450.000</s>
+            <span class="price-new">$225.000 <small>ARS</small></span>
+            <span class="price-note">desde · pago único</span>
+          </div>
+          <ul class="checks">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Diseño y desarrollo a medida</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Responsive para todas las pantallas</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Hasta 5 secciones</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Formulario de contacto</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>SEO técnico básico</li>
+          </ul>
+          <a href="#contacto" class="btn btn-line">Consultar</a>
+        </li>
 
-      <div class="plan-card featured">
-        <div class="plan-tag">Interactivo</div>
-        <h3>Web con animación y 3D</h3>
-        <div class="plan-price">
-          <span class="price-old">$890.000</span>
-          <span class="price-new" data-full="$890.000<sup>ARS</sup>">$445.000<sup>ARS</sup></span>
-        </div>
-        <div class="plan-period">desde · pago único</div>
-        <ul class="plan-list">
-          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Todo lo incluido en el proyecto Esencial</p></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Animaciones personalizadas</p></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Hasta 3 animaciones Lottie</p></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>1 modelo 3D interactivo</p></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Interacciones adaptadas al proyecto</p></li>
-        </ul>
-        <a href="#contacto" class="btn btn-hard btn-block">Consultar proyecto</a>
-      </div>
+        <li class="plan plan--featured is-dark">
+          <span class="plan-badge">Más elegido</span>
+          <div class="plan-head">
+            <span class="label label--light">Interactivo</span>
+            <h3>Web con animación y 3D</h3>
+          </div>
+          <div class="plan-price">
+            <s class="price-old"><span class="visually-hidden">Antes </span>$890.000</s>
+            <span class="price-new">$445.000 <small>ARS</small></span>
+            <span class="price-note">desde · pago único</span>
+          </div>
+          <ul class="checks">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Todo lo del plan Esencial</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Animaciones personalizadas</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Hasta 3 animaciones Lottie</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 modelo 3D interactivo</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Interacciones adaptadas al proyecto</li>
+          </ul>
+          <a href="#contacto" class="btn btn-on-dark">Consultar</a>
+        </li>
 
-      <div class="plan-card">
-        <div class="plan-tag">E-commerce</div>
-        <h3>Tienda personalizada</h3>
-        <div class="plan-price">
-          <span class="price-old">Desde $1.400.000</span>
-          <span class="price-new" data-full="Desde $1.400.000<sup>ARS</sup>">Desde $700.000<sup>ARS</sup></span>
-        </div>
-        <div class="plan-period">según alcance</div>
-        <ul class="plan-list">
-          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Catálogo de productos</p></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Carrito y proceso de compra</p></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Variantes y configuraciones de producto</p></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Animación, 3D e interacción según el proyecto</p></li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5L6.3 12L13 4" stroke="#1E874B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Soporte y mantenimiento opcional</p></li>
-        </ul>
-        <a href="#contacto" class="btn btn-outline btn-block">Consultar proyecto</a>
-      </div>
+        <li class="plan">
+          <div class="plan-head">
+            <span class="label">E-commerce</span>
+            <h3>Tienda personalizada</h3>
+          </div>
+          <div class="plan-price">
+            <s class="price-old"><span class="visually-hidden">Antes </span>$1.400.000</s>
+            <span class="price-new">$700.000 <small>ARS</small></span>
+            <span class="price-note">desde · según alcance</span>
+          </div>
+          <ul class="checks">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Catálogo de productos</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Carrito y proceso de compra</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Variantes y configuraciones</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Animación, 3D e interacción según el proyecto</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Soporte y mantenimiento opcional</li>
+          </ul>
+          <a href="#contacto" class="btn btn-line">Consultar</a>
+        </li>
 
+      </ul>
     </div>
+    <!-- Indicador del carrusel mobile (lo arma script.js) -->
+    <div class="plan-dots" id="plan-dots" aria-label="Planes"></div>
   </div>
 </section>
 
 <!-- ============ CONTACTO ============ -->
-<section id="contacto">
-  <div class="container contact-wrap">
+<section id="contacto" class="section-alt">
+  <div class="container contact">
     <div class="contact-info">
-      <span class="eyebrow">Contacto</span>
+      <span class="tag">Contacto</span>
       <h2 class="section-title">Hablemos de tu proyecto</h2>
-      <p class="section-lead">Contame qué necesitás desarrollar y te respondo con una primera orientación sobre alcance, tiempos y presupuesto.</p>
-      <div class="field-note">
-        <div class="info-row"><strong>Mail:</strong><span>Contacto@JuanPedro.com.ar</span></div>
-        <div class="info-row"><strong>Ubicación:</strong><span>Buenos Aires, Argentina</span></div>
-      </div>
+      <p class="lead">Contame qué necesitás y te respondo con una primera orientación sobre alcance, tiempos y presupuesto.</p>
+      <dl class="contact-rows">
+        <div><dt class="label">Mail</dt><dd><a href="mailto:contacto@juanpedro.com.ar">contacto@juanpedro.com.ar</a></dd></div>
+        <div><dt class="label">Ubicación</dt><dd>Buenos Aires, Argentina</dd></div>
+      </dl>
     </div>
-    <form id="contactForm">
+    <form class="form" id="contactForm" novalidate>
       <div class="field">
-        <label for="name">Nombre</label>
-        <input type="text" id="name" name="nombre" required>
+        <label for="f-nombre">Nombre</label>
+        <input type="text" id="f-nombre" name="nombre" autocomplete="name" required>
       </div>
       <div class="field">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <label for="f-email">Email</label>
+        <input type="email" id="f-email" name="email" autocomplete="email" required>
       </div>
       <div class="field">
-        <label for="message">Mensaje</label>
-        <textarea id="message" name="mensaje" required></textarea>
+        <label for="f-msg">¿Qué querés hacer?</label>
+        <textarea id="f-msg" name="mensaje" rows="5" required></textarea>
       </div>
 
-      <!-- Honeypot: campo oculto, invisible para humanos, los bots lo completan igual -->
-      <input type="text" name="honeypot" style="display:none" tabindex="-1" autocomplete="off">
+      <!-- Honeypot: invisible para humanos, los bots lo completan igual -->
+      <div class="hp" aria-hidden="true">
+        <label for="f-hp">No completar</label>
+        <input type="text" id="f-hp" name="honeypot" tabindex="-1" autocomplete="off">
+      </div>
 
-      <button type="submit" class="btn btn-hard btn-block">Enviar mensaje</button>
-      <p class="form-msg" id="formMsg"></p>
+      <button type="submit" class="btn btn-solid btn-block">Enviar mensaje</button>
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
     </form>
   </div>
 </section>
 
-<script>
-  const form = document.getElementById('contactForm');
-  const status = document.getElementById('formMsg');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    status.textContent = 'Enviando...';
-    status.classList.remove('form-msg--error');
-    status.style.display = 'block';
-
-    const data = Object.fromEntries(new FormData(form));
-
-    try {
-      const res = await fetch('/api/contacto', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-
-      const result = await res.json();
-
-      if (res.ok) {
-        status.textContent = '¡Mensaje enviado! Te vamos a contactar pronto.';
-        form.reset();
-      } else {
-        status.textContent = result.error || 'Ocurrió un error, intentá de nuevo.';
-        status.classList.add('form-msg--error');
-      }
-    } catch (err) {
-      status.textContent = 'Ocurrió un error, intentá de nuevo.';
-      status.classList.add('form-msg--error');
-    }
-  });
-</script>
+</main>
 
 <!-- ============ FOOTER ============ -->
-<footer>
+<footer class="site-footer">
   <div class="container footer-grid">
-    <div class="logo"><img src="assets/images/logo.webp" alt="" class="logo-img">JuanPedro<span>.</span></div>
-    <ul class="footer-links">
-      <li><a href="#modelado">Modelado 3D</a></li>
-      <li><a href="#tienda">Tienda</a></li>
-      <li><a href="#animaciones">Animaciones</a></li>
-      <li><a href="/apps/">Apps</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-      <li><a href="/politica-de-privacidad/">Política de privacidad</a></li>
-    </ul>
+    <a href="#inicio" class="logo">
+      <img src="assets/images/logo-128.webp" alt="" width="40" height="40" loading="lazy">
+      <span class="logo-text">JuanPedro<span class="accent-dot">.</span></span>
+    </a>
+    <nav aria-label="Pie de página">
+      <ul class="footer-links">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#planes">Planes</a></li>
+        <li><a href="/apps/">Apps</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="/politica-de-privacidad/">Política de privacidad</a></li>
+      </ul>
+    </nav>
     <span class="footer-note">© 2026 JuanPedro</span>
   </div>
 </footer>
 
+<script src="nav.js" defer></script>
 <script src="viewer3d.js" defer></script>
 <script src="script.js" defer></script>
 </body>

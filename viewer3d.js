@@ -5,7 +5,7 @@
    ========================================================================= */
 const VIEWER_CONFIG = {
 
-  // Contenedor donde se monta el visor (ver id="glb-viewer" en el HTML)
+  // Contenedor donde se monta el visor (ver id="glb-viewer" en el hero del HTML)
   containerId: 'glb-viewer',
 
 
@@ -32,11 +32,11 @@ const VIEWER_CONFIG = {
   useEnvAsBackground: false, // true = se ve el HDRI como fondo, no solo como reflejo
 
   // Fondo — "solid" usa backgroundColor. "transparent" deja ver lo que
-  // haya detrás del visor en la página (el color de --surface de la sección).
+  // haya detrás del visor en la página (el escenario gris del hero).
   backgroundMode: 'transparent', // 'solid' | 'transparent'
-  backgroundColor: '#936f62', // coincide con --surface-alt del sitio
+  backgroundColor: '#F4F5F4', // --bg-2 del sitio
 
-  // Cámara / interacción
+  // Cámara / interacción (con prefers-reduced-motion el auto-rotate se desactiva solo)
   autoRotate: true,
   autoRotateSpeed: 1.1,
   enableZoom: false,
@@ -105,7 +105,7 @@ const VIEWER_CONFIG = {
   controls.enablePan = VIEWER_CONFIG.enablePan;
   controls.minDistance = VIEWER_CONFIG.minDistance;
   controls.maxDistance = VIEWER_CONFIG.maxDistance;
-  controls.autoRotate = VIEWER_CONFIG.autoRotate;
+  controls.autoRotate = VIEWER_CONFIG.autoRotate && !matchMedia('(prefers-reduced-motion: reduce)').matches;
   controls.autoRotateSpeed = VIEWER_CONFIG.autoRotateSpeed;
   controls.update();
 
@@ -159,22 +159,6 @@ const VIEWER_CONFIG = {
     const g = VIEWER_CONFIG.glass;
     return new THREE.MeshPhysicalMaterial({
       color: baseColor || new THREE.Color(g.tint),
-      transparent: true,
-      opacity: 0.4,
-      transmission: g.transmission,
-      roughness: g.roughness,
-      thickness: g.thickness,
-      ior: g.ior,
-      clearcoat: 1,
-      clearcoatRoughness: 0.1,
-      metalness: 0
-    });
-  }
-
-  function makeGlassMaterial(baseColor){
-    const g = VIEWER_CONFIG.glass;
-    return new THREE.MeshPhysicalMaterial({
-      color: baseColor || new THREE.Color(g.tint),
       side: VIEWER_CONFIG.showBackSide ? THREE.DoubleSide : THREE.FrontSide,
       transparent: true,
       opacity: 0.4,
@@ -218,31 +202,51 @@ const VIEWER_CONFIG = {
     });
   }
 
-  function frameObject(obj){
+  // Caja que envuelve al modelo en todo el recorrido de su animación
+  // (ej. la puerta del terrario abriéndose), no solo en la pose inicial.
+  function measure(obj){
     const box = new THREE.Box3().setFromObject(obj);
+    if (!mixer || !activeAction) return box;
+    const duration = activeAction.getClip().duration;
+    const SAMPLES = 12;
+    for (let i = 1; i <= SAMPLES; i++) {
+      mixer.setTime((duration * i) / SAMPLES);
+      obj.updateMatrixWorld(true);
+      box.union(new THREE.Box3().setFromObject(obj));
+    }
+    mixer.setTime(0);
+    obj.updateMatrixWorld(true);
+    return box;
+  }
+
+  function frameObject(obj){
+    const box = measure(obj);
     const size = box.getSize(new THREE.Vector3());
     const maxDim = Math.max(size.x, size.y, size.z) || 1;
     const scale = 1.6 / maxDim;
     obj.scale.setScalar(scale);
-    const box2 = new THREE.Box3().setFromObject(obj);
+    obj.updateMatrixWorld(true);
+    const box2 = measure(obj);
     const center2 = box2.getCenter(new THREE.Vector3());
     obj.position.sub(center2);
+    box2.translate(center2.clone().negate());
     const size2 = box2.getSize(new THREE.Vector3());
     obj.position.y += size2.y / 2;
-    controls.target.set(0, size2.y * 0.4, 0);
+    controls.target.copy(box2.getCenter(new THREE.Vector3()).add(new THREE.Vector3(0, size2.y / 2, 0)));
 
-    // Distancia de cámara calculada para que el objeto entre completo tanto
-    // en el FOV vertical como en el horizontal (evita que se recorten los
-    // lados cuando el modelo es más ancho que alto o el canvas es angosto).
-    const margin = 1.3;
+    // Distancia de cámara calculada con la esfera que envuelve al modelo, así
+    // entra completo en el FOV vertical y horizontal en cualquier ángulo del
+    // auto-rotate (con la caja sola se cortaban los lados al girar).
+    const margin = 1.1;
+    const sphere = box2.getBoundingSphere(new THREE.Sphere());
+    sphere.center.y += size2.y / 2;
+    const radius = sphere.radius;
     const vFov = THREE.MathUtils.degToRad(camera.fov);
     const hFov = 2 * Math.atan(Math.tan(vFov / 2) * camera.aspect);
-    const distV = (size2.y / 2) / Math.tan(vFov / 2);
-    const distH = (Math.max(size2.x, size2.z) / 2) / Math.tan(hFov / 2);
-    const distance = Math.max(distV, distH, 1) * margin;
+    const distance = (radius / Math.sin(Math.min(vFov, hFov) / 2)) * margin;
 
     const dir = new THREE.Vector3(1.8, 0.8, 2.6).normalize();
-    camera.position.set(dir.x * distance, size2.y * 0.4 + dir.y * distance, dir.z * distance);
+    camera.position.copy(controls.target).addScaledVector(dir, distance);
     controls.update();
   }
 
@@ -274,8 +278,8 @@ const VIEWER_CONFIG = {
       modelRoot = gltf.scene;
       applyGlass(modelRoot);
       scene.add(modelRoot);
-      frameObject(modelRoot);
       setupAnimation(gltf.animations);
+      frameObject(modelRoot);
     }, undefined, (err) => {
       console.error('No se pudo cargar el modelo, se muestra el de referencia.', err);
       loadPlaceholderModel();

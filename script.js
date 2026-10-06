@@ -1,167 +1,238 @@
-// ---------- Lottie: animación cargada desde un archivo ----------
-// Cambiá esta ruta por la de tu archivo .json en assets/
-const LOTTIE_PATH = 'assets/lottie.json';
+const prefersReducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-const animation = lottie.loadAnimation({
-  container: document.getElementById('lottie-sample'),
-  renderer: 'svg',
-  loop: false,
-  autoplay: false,
-  path: LOTTIE_PATH
-});
-
-const SEGMENTS = {
-  idle: [0, 1],
-  hoverIn: [0, 25],   // tapa presionándose
-  click: [25, 267]
-};
-
-let isLocked = false;
-let currentAction = null; // 'click' | 'hover' | 'idle'
-
-animation.addEventListener('DOMLoaded', () => {
-  animation.setSubframe(false);
-  currentAction = 'idle';
-  animation.playSegments(SEGMENTS.idle, true);
-});
-
-const el = document.getElementById('lottie-sample');
-
-el.addEventListener('mouseenter', () => {
-  if (isLocked) return;
-  currentAction = 'hover';
-  animation.setDirection(1);
-  animation.playSegments([animation.currentFrame, SEGMENTS.hoverIn[1]], true);
-});
-
-el.addEventListener('mouseleave', () => {
-  if (isLocked) return;
-  currentAction = 'idle';
-  animation.setDirection(-1);
-  animation.playSegments([animation.currentFrame, SEGMENTS.hoverIn[0]], true);
-});
-
-el.addEventListener('click', () => {
-  if (isLocked) return;
-  isLocked = true;
-  currentAction = 'click';
-  animation.setDirection(1); // fuerza dirección, evita heredar -1 del hover
-  animation.playSegments(SEGMENTS.click, true);
-});
-
-animation.addEventListener('complete', () => {
-  if (currentAction === 'click') {
-    isLocked = false;
-    currentAction = 'idle';
-    animation.setDirection(1);
-    animation.playSegments(SEGMENTS.idle, true);
+// =========================================================
+// PROYECTOS EN LÍNEA — para sumar uno nuevo, agregá un objeto al array.
+//
+//   nombre       título de la tarjeta
+//   url          link del botón "Visitar sitio". Si queda en null no se muestra el botón.
+//   dominio      texto de la barra del navegador (si es null se usa el nombre)
+//   descripcion  párrafo de la tarjeta
+//   chips        tecnologías / features
+//   color        color de la sombra del botón
+//   captura      ruta a la captura (se recorta en 16:10 mostrando la parte de arriba).
+//                Puede ser una captura de página completa. Si es null se muestra
+//                un rectángulo de color con el nombre (placeholder.fondo / .texto)
+// =========================================================
+const PROJECTS = [
+  {
+    nombre: 'PlumAh!',
+    url: 'https://plumah.com.ar/',
+    dominio: 'plumah.com.ar',
+    descripcion: 'Sitio para una marca fabricante de abanicos. Incluye un editor 3D donde cada cliente diseña su abanico con su estampa y su logo, y envía el diseño para cotizar.',
+    chips: ['Editor 3D', 'Cards 3D interactivas', 'Panel de admin', 'Tiendanube'],
+    color: '#C4006A',
+    captura: 'assets/images/proyectos/plumah.webp',
+    placeholder: { fondo: '#C4006A', texto: '#FFFFFF' }
+  },
+  {
+    nombre: 'Remeritas',
+    url: 'https://remeritas.com.ar', // TODO: confirmar URL
+    dominio: 'remeritas.com.ar',
+    descripcion: 'Plataforma donde cada persona abre su tienda de remeras estampadas. El diseño se ve sobre un modelo 3D a medida que se edita, y cada tienda tiene su propio subdominio.',
+    chips: ['Visor 3D en vivo', 'Tiendas con subdominio', 'Planes de suscripción', 'Marketplace curado'],
+    color: '#0E7C8A',
+    captura: 'assets/images/proyectos/remeritas.webp',
+    placeholder: { fondo: '#E8F4F5', texto: '#0B5E69' }
   }
-});
-// ---------- Carrito: actualiza contador y estado del carrito ----------
-const selectedItems = new Set();
-const cartAnimation = document.getElementById('cartAnimation');
-const cartCountEl = document.getElementById('cartCount');
-const cartBtn = document.getElementById('cartBtn');
-
-// Preload cart images and use a single <img> element to avoid flicker
-const CART_IMAGE_PATHS = [
-  'assets/images/carrito0.png',
-  'assets/images/carrito1.png',
-  'assets/images/carrito2.png',
-  'assets/images/carrito3.png'
 ];
-const _cartPreloads = CART_IMAGE_PATHS.map(p => { const i = new Image(); i.src = p; return i; });
 
-let cartIconImg = cartAnimation.querySelector('img');
-if (!cartIconImg) {
-  cartIconImg = document.createElement('img');
-  cartIconImg.alt = 'Carrito';
-  cartIconImg.classList.add('cart-icon');
-  cartAnimation.innerHTML = '';
-  cartAnimation.appendChild(cartIconImg);
-}
-// make image visible when loaded
-cartIconImg.addEventListener('load', () => cartIconImg.classList.add('loaded'));
+(function renderProjects(){
+  const list = document.getElementById('project-list');
+  if (!list) return;
 
-function toggleCartItem(productId){
-  if(selectedItems.has(productId)){
-    selectedItems.delete(productId);
-  } else if(selectedItems.size < 3){
-    selectedItems.add(productId);
-  }
-  updateCart();
-  cartBtn.classList.add('active');
-  setTimeout(() => cartBtn.classList.remove('active'), 180);
-}
-function updateCart(){
-  const count = selectedItems.size;
-  const state = count === 0 ? 'empty' : count.toString();
-  cartAnimation.classList.remove('state-empty','state-1','state-2','state-3');
-  cartAnimation.classList.add(`state-${state}`);
-  // Mostrar imagen según la cantidad (assets/images/carrito0.png .. carrito3.png)
-  const imgCount = Math.max(0, Math.min(3, count));
-  const imgSrc = CART_IMAGE_PATHS[imgCount];
-  // swap src on the single <img> element (preloaded) to avoid flicker
-  cartIconImg.classList.remove('loaded');
-  cartIconImg.src = imgSrc;
-  cartIconImg.alt = `Carrito (${count})`;
+  const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+  const arrow = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>';
 
+  list.innerHTML = PROJECTS.map(p => {
+    const screen = p.captura
+      ? `<img src="${esc(p.captura)}" alt="Captura de ${esc(p.nombre)}" loading="lazy">`
+      : `<strong style="color:${esc(p.placeholder.texto)}">${esc(p.nombre)}</strong>`;
+    const screenStyle = p.captura ? '' : ` style="background:${esc(p.placeholder.fondo)}"`;
+    const button = p.url
+      ? `<a class="btn btn-on-dark" href="${esc(p.url)}" target="_blank" rel="noopener" style="--btn-shadow:${esc(p.color)}">Visitar sitio ${arrow}<span class="visually-hidden"> (se abre en otra pestaña)</span></a>`
+      : '';
 
+    return `
+      <article class="project">
+        <div class="project-media">
+          <div class="browser" aria-hidden="${p.captura ? 'false' : 'true'}">
+            <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">${esc(p.dominio || p.nombre)}</span></div>
+            <div class="browser-screen"${screenStyle}>${screen}</div>
+          </div>
+        </div>
+        <div class="project-info">
+          <span class="label label--ok"><span class="dot dot--light"></span>En línea</span>
+          <h3>${esc(p.nombre)}</h3>
+          <p>${esc(p.descripcion)}</p>
+          <ul class="chips">${p.chips.map(c => `<li class="chip">${esc(c)}</li>`).join('')}</ul>
+          ${button}
+        </div>
+      </article>`;
+  }).join('');
+})();
 
-  document.querySelectorAll('.toggle-btn').forEach(button => {
-    const productId = button.dataset.product;
-    const active = selectedItems.has(productId);
-    button.textContent = active ? 'Quitar' : 'Agregar';
-    button.classList.toggle('active', active);
-    button.setAttribute('aria-pressed', active);
+// =========================================================
+// LOTTIE — animación de la tarjeta "02 · Animación"
+// Hover: la tapa se presiona. Click / Enter: se abre el regalo.
+// Con prefers-reduced-motion no hay animación de hover, solo al hacer click.
+// =========================================================
+(function initLottie(){
+  const el = document.getElementById('lottie-sample');
+  if (!el || typeof lottie === 'undefined') return;
+
+  const animation = lottie.loadAnimation({
+    container: el,
+    renderer: 'svg',
+    loop: false,
+    autoplay: false,
+    path: 'assets/lottie.json'
   });
-}
 
-cartBtn.addEventListener('mouseenter', () => cartAnimation.classList.add('hover'));
-cartBtn.addEventListener('mouseleave', () => cartAnimation.classList.remove('hover'));
-cartBtn.addEventListener('mousedown', () => cartAnimation.classList.add('active'));
-cartBtn.addEventListener('mouseup', () => cartAnimation.classList.remove('active'));
-
-updateCart();
-
-// ---------- Promo: descuento 50% con cuenta regresiva (2 meses) ----------
-(function initPromoCountdown(){
-  const PROMO_END = new Date('2026-10-21T00:00:00-03:00').getTime();
-  const banner = document.getElementById('promoBanner');
-  if(!banner) return;
-
-  const els = {
-    days: document.getElementById('cd-days'),
-    hours: document.getElementById('cd-hours'),
-    mins: document.getElementById('cd-mins'),
-    secs: document.getElementById('cd-secs'),
+  const SEGMENTS = {
+    idle: [0, 1],
+    hoverIn: [0, 25],   // tapa presionándose
+    click: [25, 267]
   };
 
-  function endPromo(){
-    banner.style.display = 'none';
-    document.querySelectorAll('.price-old').forEach(el => el.style.display = 'none');
-    document.querySelectorAll('.price-new').forEach(el => { el.innerHTML = el.dataset.full; });
+  let isLocked = false;
+  let currentAction = null; // 'click' | 'hover' | 'idle'
+
+  animation.addEventListener('DOMLoaded', () => {
+    animation.setSubframe(false);
+    currentAction = 'idle';
+    animation.playSegments(SEGMENTS.idle, true);
+  });
+
+  if (!prefersReducedMotion) {
+    el.addEventListener('mouseenter', () => {
+      if (isLocked) return;
+      currentAction = 'hover';
+      animation.setDirection(1);
+      animation.playSegments([animation.currentFrame, SEGMENTS.hoverIn[1]], true);
+    });
+
+    el.addEventListener('mouseleave', () => {
+      if (isLocked) return;
+      currentAction = 'idle';
+      animation.setDirection(-1);
+      animation.playSegments([animation.currentFrame, SEGMENTS.hoverIn[0]], true);
+    });
   }
 
-  function tick(){
-    const diff = PROMO_END - Date.now();
-    if(diff <= 0){
-      clearInterval(timer);
-      endPromo();
+  // Es un <button>, así que el click también cubre Enter / Espacio
+  el.addEventListener('click', () => {
+    if (isLocked) return;
+    isLocked = true;
+    currentAction = 'click';
+    animation.setDirection(1); // fuerza dirección, evita heredar -1 del hover
+    animation.playSegments(SEGMENTS.click, true);
+  });
+
+  animation.addEventListener('complete', () => {
+    if (currentAction === 'click') {
+      isLocked = false;
+      currentAction = 'idle';
+      animation.setDirection(1);
+      animation.playSegments(SEGMENTS.idle, true);
+    }
+  });
+})();
+
+// =========================================================
+// PLANES — indicador de puntos del carrusel mobile
+// =========================================================
+(function initPlanDots(){
+  const track = document.getElementById('plan-grid');
+  const dotsWrap = document.getElementById('plan-dots');
+  if (!track || !dotsWrap) return;
+
+  // Orden visual (en mobile la tarjeta destacada va primero con CSS order)
+  const cards = () => [...track.children].sort((a, b) => a.offsetLeft - b.offsetLeft);
+
+  const dots = cards().map((card, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', `Ver plan ${i + 1} de ${track.children.length}`);
+    dotsWrap.appendChild(b);
+    return b;
+  });
+
+  function update(){
+    const ordered = cards();
+    const start = track.getBoundingClientRect().left;
+    let current = 0, best = Infinity;
+    ordered.forEach((card, i) => {
+      const d = Math.abs(card.getBoundingClientRect().left - start);
+      if (d < best) { best = d; current = i; }
+    });
+    // Si se llegó al final del scroll, el último queda activo
+    if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 2) current = ordered.length - 1;
+    dots.forEach((d, i) => d.setAttribute('aria-current', i === current ? 'true' : 'false'));
+  }
+
+  dots.forEach((dot, i) => dot.addEventListener('click', () => {
+    const card = cards()[i];
+    track.scrollTo({ left: card.offsetLeft - track.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft), behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+  }));
+
+  let raf = 0;
+  track.addEventListener('scroll', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(update); }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
+// =========================================================
+// CONTACTO — POST a /api/contacto (Vercel + Resend)
+// =========================================================
+(function initContactForm(){
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  if (!form) return;
+  const button = form.querySelector('button[type="submit"]');
+  const buttonLabel = button.textContent;
+
+  function setStatus(type, text){
+    status.className = 'form-status' + (type ? ` is-${type}` : '');
+    status.textContent = text;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      const invalid = form.querySelector(':invalid');
+      setStatus('error', invalid.type === 'email' && invalid.value
+        ? 'Revisá el email, parece que tiene un error.'
+        : 'Completá nombre, email y qué querés hacer.');
+      invalid.focus();
       return;
     }
-    const days = Math.floor(diff / 86400000);
-    const hours = Math.floor((diff % 86400000) / 3600000);
-    const mins = Math.floor((diff % 3600000) / 60000);
-    const secs = Math.floor((diff % 60000) / 1000);
-    els.days.textContent = String(days).padStart(2, '0');
-    els.hours.textContent = String(hours).padStart(2, '0');
-    els.mins.textContent = String(mins).padStart(2, '0');
-    els.secs.textContent = String(secs).padStart(2, '0');
-  }
 
-  tick();
-  const timer = setInterval(tick, 1000);
+    button.disabled = true;
+    button.textContent = 'Enviando…';
+    setStatus('pending', 'Enviando tu mensaje…');
+
+    try {
+      const res = await fetch('/api/contacto', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      });
+      const result = await res.json().catch(() => ({}));
+
+      if (res.ok) {
+        setStatus('ok', '¡Gracias! Recibí tu mensaje y te respondo pronto.');
+        form.reset();
+      } else {
+        setStatus('error', result.error || 'No se pudo enviar. Probá de nuevo o escribime a contacto@juanpedro.com.ar.');
+      }
+    } catch (err) {
+      setStatus('error', 'No se pudo enviar. Probá de nuevo o escribime a contacto@juanpedro.com.ar.');
+    } finally {
+      button.disabled = false;
+      button.textContent = buttonLabel;
+    }
+  });
 })();
 
 // ---------- Título de pestaña: animación ASCII cuando la pestaña está oculta ----------
@@ -184,14 +255,3 @@ updateCart();
     }
   });
 })();
-
-// ---------- Nav mobile: scroll suave a secciones ----------
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', function(e){
-    const target = document.querySelector(this.getAttribute('href'));
-    if(target){
-      e.preventDefault();
-      target.scrollIntoView({behavior:'smooth'});
-    }
-  });
-});
