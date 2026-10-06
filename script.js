@@ -26,7 +26,7 @@ const PROJECTS = [
   },
   {
     nombre: 'Remeritas',
-    url: 'https://remeritas.com.ar', // TODO: confirmar URL
+    url: 'https://remeritas.com.ar',
     dominio: 'remeritas.com.ar',
     descripcion: 'Plataforma donde cada persona abre su tienda de remeras estampadas. El diseño se ve sobre un modelo 3D a medida que se edita, y cada tienda tiene su propio subdominio.',
     chips: ['Visor 3D en vivo', 'Tiendas con subdominio', 'Planes de suscripción', 'Marketplace curado'],
