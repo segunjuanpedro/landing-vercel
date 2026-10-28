@@ -37,7 +37,7 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://unpkg.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261006b">
+<link rel="stylesheet" href="styles.css?v=20261028">
 <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js" defer></script>
@@ -54,7 +54,19 @@
       "url": "https://juanpedro.com.ar/",
       "name": "JuanPedro",
       "inLanguage": "es-AR",
+      "description": "Diseño y desarrollo de sitios web a medida, tiendas online y modelos 3D interactivos para marcas de toda Argentina.",
       "publisher": { "@id": "https://juanpedro.com.ar/#negocio" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://juanpedro.com.ar/#webpage",
+      "url": "https://juanpedro.com.ar/",
+      "name": "Desarrollo web a medida en Buenos Aires | JuanPedro",
+      "inLanguage": "es-AR",
+      "isPartOf": { "@id": "https://juanpedro.com.ar/#website" },
+      "about": { "@id": "https://juanpedro.com.ar/#negocio" },
+      "primaryImageOfPage": "https://juanpedro.com.ar/assets/images/og-juanpedro.jpg",
+      "dateModified": "2026-10-28"
     },
     {
       "@type": "Person",
@@ -80,6 +92,8 @@
         "addressCountry": "AR"
       },
       "areaServed": { "@type": "Country", "name": "Argentina" },
+      "availableLanguage": "es",
+      "slogan": "Desarrollo web a medida para mostrar lo que hacés",
       "founder": { "@id": "https://juanpedro.com.ar/#juanpedro" },
       "hasMap": "https://maps.google.com/?cid=9221144320007165162",
       "sameAs": [
@@ -114,10 +128,73 @@
             "description": "Catálogo de productos, carrito y proceso de compra, variantes y configuraciones, con animación y 3D según el proyecto.",
             "price": "700000",
             "priceCurrency": "ARS",
-            "url": "https://juanpedro.com.ar/#planes"
+            "url": "https://juanpedro.com.ar/tienda-online-a-medida/"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@id": "https://juanpedro.com.ar/desarrollo-web-a-medida/#servicio" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@id": "https://juanpedro.com.ar/modelado-3d-para-web/#servicio" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@id": "https://juanpedro.com.ar/sitio-web-autogestionable/#servicio" }
           }
         ]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://juanpedro.com.ar/#preguntas",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta una página web a medida en Argentina?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Con el precio de lanzamiento, una landing personalizada arranca en $225.000 ARS, una web con animación y 3D en $445.000 ARS y una tienda online a medida en $700.000 ARS. Es un pago único. El valor final depende de la cantidad de secciones, animaciones, modelos 3D o productos: después de una primera charla te paso el presupuesto." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tarda en estar lista una página web?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Una landing del plan Esencial está lista en 1 a 2 semanas. Los sitios con animaciones, modelos 3D o tienda online llevan más tiempo según el alcance, y el plazo queda definido en el presupuesto." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El hosting y el dominio están incluidos?",
+          "acceptedAnswer": { "@type": "Answer", "text": "El hosting está incluido: me encargo de publicar el sitio y dejarlo funcionando. El dominio (por ejemplo, tumarca.com.ar) lo registrás a tu nombre y lo pagás aparte, así queda siempre tuyo. Te ayudo a conectarlo." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Trabajás con clientes de otras provincias?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí. Estoy en Buenos Aires y trabajo a distancia con clientes de toda Argentina, por videollamada y mail." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Voy a poder editar el sitio por mi cuenta?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí, si sumás un panel autogestionable. Desde ahí cambiás productos, precios, textos e imágenes sin tocar código." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Mi página va a aparecer en Google?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Todos los planes incluyen SEO técnico básico: títulos y descripciones para cada página, datos estructurados, sitemap, buena carga en celulares y estructura clara de contenidos. Con eso Google puede indexar y entender el sitio. Escalar posiciones lleva tiempo y depende también del contenido y de la competencia en tu rubro." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay con armar la web en una plantilla?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Una plantilla te da un diseño genérico y te limita a lo que esa plataforma permite. Un sitio a medida se diseña alrededor de tu marca y de tu producto, con código propio, y puede sumar cosas que una plantilla no trae, como un configurador 3D o animaciones propias. Si ya vendés en Tiendanube, se puede integrar con el sitio." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Para qué sirve un modelo 3D en una página web?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Deja que la persona gire el producto, vea sus materiales desde cualquier ángulo y, si hace falta, lo personalice antes de comprar o pedir cotización. Funciona con mouse y en pantallas táctiles." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Ofrecés mantenimiento después de publicar?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí, es opcional. Después de publicar podés sumar soporte y mantenimiento para cambios, actualizaciones y nuevas secciones." }
+        }
+      ]
     }
   ]
 }
@@ -217,6 +294,7 @@
     <div class="section-head">
       <span class="tag">Servicios</span>
       <h2 class="section-title">Lo que puedo sumarle a tu sitio</h2>
+      <p class="lead">Todo parte de un <a href="/desarrollo-web-a-medida/">sitio web a medida</a>. Encima se suman las piezas que tu proyecto necesite.</p>
     </div>
     <div class="bento">
 
@@ -232,6 +310,7 @@
           <a href="/editor/" target="_blank" rel="noopener" class="btn btn-on-dark">Probar el editor interactivo
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
           </a>
+          <a href="/modelado-3d-para-web/" class="service-more">Más sobre modelado 3D para web</a>
         </div>
         <img src="assets/images/editor-snapshot.webp" alt="Visor 3D con un buzo, una taza y un paraguas personalizables" width="1200" height="1200" loading="lazy">
       </article>
@@ -252,6 +331,7 @@
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Carrito, variantes y configuraciones</li>
             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Fotos de producto hechas en 3D</li>
           </ul>
+          <a href="/tienda-online-a-medida/" class="service-more">Más sobre tiendas online a medida</a>
         </div>
         <ul class="products">
           <li><figure>
@@ -277,7 +357,7 @@
           <div>
             <span class="label label--accent">04 · Autogestionable</span>
             <h3>Un panel para editar tu sitio</h3>
-            <p>Actualizás productos, precios y textos por tu cuenta.</p>
+            <p>Actualizás productos, precios y textos por tu cuenta. <a href="/sitio-web-autogestionable/">Cómo funciona</a></p>
           </div>
         </div>
         <div class="extra">
@@ -425,6 +505,74 @@
   </div>
 </section>
 
+<!-- ============ PREGUNTAS FRECUENTES ============ -->
+<!-- Cada pregunta está repetida en el JSON-LD FAQPage del <head>: si se edita una, editar las dos -->
+<section id="preguntas" class="section-rule">
+  <div class="container faq">
+    <div class="section-head">
+      <span class="tag">Preguntas frecuentes</span>
+      <h2 class="section-title">Lo que más me preguntan</h2>
+      <p class="lead">Si tu duda no está acá, <a href="#contacto">escribime</a> y te respondo.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>¿Cuánto cuesta una página web a medida en Argentina?</summary>
+        <div class="faq-answer">
+          <p>Con el precio de lanzamiento, una landing personalizada arranca en $225.000 ARS, una web con animación y 3D en $445.000 ARS y una tienda online a medida en $700.000 ARS. Es un pago único. El valor final depende de la cantidad de secciones, animaciones, modelos 3D o productos: después de una primera charla te paso el presupuesto.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cuánto tarda en estar lista una página web?</summary>
+        <div class="faq-answer">
+          <p>Una landing del plan Esencial está lista en 1 a 2 semanas. Los sitios con animaciones, modelos 3D o tienda online llevan más tiempo según el alcance, y el plazo queda definido en el presupuesto.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿El hosting y el dominio están incluidos?</summary>
+        <div class="faq-answer">
+          <p>El hosting está incluido: me encargo de publicar el sitio y dejarlo funcionando. El dominio (por ejemplo, tumarca.com.ar) lo registrás a tu nombre y lo pagás aparte, así queda siempre tuyo. Te ayudo a conectarlo.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Trabajás con clientes de otras provincias?</summary>
+        <div class="faq-answer">
+          <p>Sí. Estoy en Buenos Aires y trabajo a distancia con clientes de toda Argentina, por videollamada y mail.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Voy a poder editar el sitio por mi cuenta?</summary>
+        <div class="faq-answer">
+          <p>Sí, si sumás un panel autogestionable. Desde ahí cambiás productos, precios, textos e imágenes sin tocar código. <a href="/sitio-web-autogestionable/">Ver cómo funciona un sitio autogestionable</a>.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Mi página va a aparecer en Google?</summary>
+        <div class="faq-answer">
+          <p>Todos los planes incluyen SEO técnico básico: títulos y descripciones para cada página, datos estructurados, sitemap, buena carga en celulares y estructura clara de contenidos. Con eso Google puede indexar y entender el sitio. Escalar posiciones lleva tiempo y depende también del contenido y de la competencia en tu rubro.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué diferencia hay con armar la web en una plantilla?</summary>
+        <div class="faq-answer">
+          <p>Una plantilla te da un diseño genérico y te limita a lo que esa plataforma permite. Un sitio a medida se diseña alrededor de tu marca y de tu producto, con código propio, y puede sumar cosas que una plantilla no trae, como un configurador 3D o animaciones propias. Si ya vendés en Tiendanube, se puede integrar con el sitio, como en <a href="#proyectos">PlumAh!</a>.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Para qué sirve un modelo 3D en una página web?</summary>
+        <div class="faq-answer">
+          <p>Deja que la persona gire el producto, vea sus materiales desde cualquier ángulo y, si hace falta, lo personalice antes de comprar o pedir cotización. Funciona con mouse y en pantallas táctiles. Podés probarlo en el <a href="/editor/">editor 3D interactivo</a> o leer más sobre <a href="/modelado-3d-para-web/">modelado 3D para web</a>.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>¿Ofrecés mantenimiento después de publicar?</summary>
+        <div class="faq-answer">
+          <p>Sí, es opcional. Después de publicar podés sumar soporte y mantenimiento para cambios, actualizaciones y nuevas secciones.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CONTACTO ============ -->
 <section id="contacto" class="section-alt">
   <div class="container contact">
@@ -478,7 +626,12 @@
         <li><a href="#proyectos">Proyectos</a></li>
         <li><a href="#planes">Planes</a></li>
         <li><a href="/apps/">Apps</a></li>
+        <li><a href="#preguntas">Preguntas frecuentes</a></li>
         <li><a href="#contacto">Contacto</a></li>
+        <li><a href="/desarrollo-web-a-medida/">Desarrollo web a medida</a></li>
+        <li><a href="/tienda-online-a-medida/">Tienda online a medida</a></li>
+        <li><a href="/modelado-3d-para-web/">Modelado 3D para web</a></li>
+        <li><a href="/sitio-web-autogestionable/">Sitio autogestionable</a></li>
         <li><a href="/politica-de-privacidad/">Política de privacidad</a></li>
       </ul>
     </nav>
@@ -486,8 +639,8 @@
   </div>
 </footer>
 
-<script src="nav.js?v=20261006b" defer></script>
-<script src="viewer3d.js?v=20261006b" defer></script>
-<script src="script.js?v=20261006b" defer></script>
+<script src="nav.js?v=20261028" defer></script>
+<script src="viewer3d.js?v=20261028" defer></script>
+<script src="script.js?v=20261028" defer></script>
 </body>
 </html>

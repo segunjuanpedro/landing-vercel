@@ -2,20 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://juanpedro.com.ar/</loc>
-    <lastmod>2026-10-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://juanpedro.com.ar/desarrollo-web-a-medida/</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://juanpedro.com.ar/tienda-online-a-medida/</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://juanpedro.com.ar/modelado-3d-para-web/</loc>
+    <lastmod>2026-10-28</lastmod>
+  </url>
+  <url>
+    <loc>https://juanpedro.com.ar/sitio-web-autogestionable/</loc>
+    <lastmod>2026-10-28</lastmod>
   </url>
   <url>
     <loc>https://juanpedro.com.ar/editor/</loc>
-    <lastmod>2026-10-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-28</lastmod>
   </url>
   <url>
     <loc>https://juanpedro.com.ar/apps/</loc>
-    <lastmod>2026-10-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-10-28</lastmod>
   </url>
 </urlset>

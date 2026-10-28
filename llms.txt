@@ -1,0 +1,35 @@
+# JuanPedro
+
+> Desarrollo web a medida en Argentina. Juan Pedro diseña y programa sitios web con código propio para marcas, emprendimientos y profesionales: landings, tiendas online, animaciones y modelos 3D interactivos. Trabaja desde Buenos Aires con clientes de todo el país, a distancia.
+
+- Sitio: https://juanpedro.com.ar/
+- Contacto: contacto@juanpedro.com.ar (formulario en https://juanpedro.com.ar/#contacto)
+- Instagram: https://www.instagram.com/segunjuanpedro/
+- Perfil de Empresa de Google: https://maps.google.com/?cid=9221144320007165162
+- Idioma: español (Argentina)
+
+## Servicios
+
+- [Desarrollo web a medida](https://juanpedro.com.ar/desarrollo-web-a-medida/): landings y sitios diseñados desde cero, responsive, con formulario de contacto, SEO técnico y hosting incluido.
+- [Tienda online a medida](https://juanpedro.com.ar/tienda-online-a-medida/): e-commerce con catálogo, carrito, variantes y configuradores de producto; se puede integrar con Tiendanube.
+- [Modelado 3D para web](https://juanpedro.com.ar/modelado-3d-para-web/): visores 3D y configuradores de producto en el navegador (Three.js, glTF), que funcionan en celulares.
+- [Sitio web autogestionable](https://juanpedro.com.ar/sitio-web-autogestionable/): panel a medida para editar productos, precios, textos e imágenes sin saber programar.
+- [Apps para Android](https://juanpedro.com.ar/apps/): apps propias gratuitas para descargar (APK) y apps a medida.
+- [Editor 3D de texturas](https://juanpedro.com.ar/editor/): demo gratuita para probar texturas sobre modelos 3D de un buzo, un paraguas y una taza.
+
+## Precios (precio de lanzamiento, pago único, en pesos argentinos)
+
+- Plan Esencial, landing personalizada: desde $225.000 ARS. Hasta 5 secciones, responsive, formulario de contacto y SEO técnico básico. Lista en 1 a 2 semanas.
+- Plan Interactivo, web con animación y 3D: desde $445.000 ARS. Incluye hasta 3 animaciones Lottie y 1 modelo 3D interactivo.
+- Plan E-commerce, tienda personalizada: desde $700.000 ARS, según alcance.
+- Hosting incluido en todos los planes. El dominio lo registra y paga el cliente, a su nombre.
+- Soporte y mantenimiento: opcional, después de publicar.
+
+## Proyectos en línea
+
+- [PlumAh!](https://plumah.com.ar/): sitio para una marca de abanicos con editor 3D donde cada cliente diseña su abanico, panel de administración e integración con Tiendanube.
+- [Remeritas](https://remeritas.com.ar): plataforma de tiendas de remeras estampadas con visor 3D en vivo, subdominio por tienda y planes de suscripción.
+
+## Preguntas frecuentes
+
+- [Preguntas frecuentes](https://juanpedro.com.ar/#preguntas): precios, plazos, hosting y dominio, trabajo a distancia, SEO y mantenimiento.
